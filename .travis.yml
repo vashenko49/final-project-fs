@@ -1,0 +1,8 @@
+language: java
+
+jdk:
+  - oraclejdk11
+notifications:
+  email: vashenko49@gmail.com
+
+script: mvn clean install test
