@@ -6,7 +6,7 @@ import { blueGrey, yellow } from '@material-ui/core/colors';
 import { Provider } from 'react-redux';
 import configureStore from './store/store';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
+import './index.scss';
 
 const outerTheme = createMuiTheme({
   palette: {

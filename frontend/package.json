@@ -23,8 +23,8 @@
   },
   "scripts": {
     "start-js": "react-scripts start",
-    "start": "concurrently \"yarn run watch-sass-js\" \"yarn run start-js\"",
-    "build": "yarn run eslint-build && yarn run stylelint-build && react-scripts build",
+    "start": "concurrently \"npm run watch-sass-js\" \"npm run start-js\"",
+    "build": "npm run eslint-build && npm run stylelint-build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint-dev": "eslint --fix src/**/*.js --cache --cache-location .eslintcache",
