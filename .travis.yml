@@ -5,4 +5,13 @@ jdk:
 notifications:
   email: vashenko49@gmail.com
 
-script: mvn clean install test
+addons:
+  sonarcloud:
+    organization: vashenko49
+    token:
+      secure: b52d87d84629760e73a0facbf9ed228508c94cdb
+
+script:
+  - mvn clean install test
+  - sonar-scanner
+  - mvn clean test jacoco:report coveralls:report

@@ -18,6 +18,10 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <frontend-src-dir>frontend</frontend-src-dir>
+        <node.version>v12.3.1</node.version>
+        <npm.version>6.14.4</npm.version>
+        <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -71,14 +75,15 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <version>1.10.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>2.3.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.0.1</version>
+            <type>maven-plugin</type>
         </dependency>
     </dependencies>
 
@@ -91,59 +96,64 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.10.0</version>
+                <version>${frontend-maven-plugin.version}</version>
+
                 <configuration>
-                    <workingDirectory>basic-frontend-app</workingDirectory>
-                    <installDirectory>target</installDirectory>
+                    <nodeVersion>${node.version}</nodeVersion>
+                    <npmVersion>${npm.version}</npmVersion>
+                    <workingDirectory>${frontend-src-dir}</workingDirectory>
+                    <installDirectory>${project.build.directory}</installDirectory>
                 </configuration>
+
                 <executions>
                     <execution>
-                        <id>install node and yarn</id>
+                        <id>install-frontend-tools</id>
                         <goals>
-                            <goal>install-node-and-yarn</goal>
+                            <goal>install-node-and-npm</goal>
                         </goals>
-                        <configuration>
-                            <nodeVersion>v12.18.0</nodeVersion>
-                            <yarnVersion>v1.22.4</yarnVersion>
-                        </configuration>
                     </execution>
+
                     <execution>
-                        <id>yarn install</id>
+                        <id>npm install</id>
                         <goals>
-                            <goal>yarn</goal>
+                            <goal>npm</goal>
                         </goals>
                         <configuration>
                             <arguments>install</arguments>
-                            <workingDirectory>frontend</workingDirectory>
                         </configuration>
                     </execution>
+
                     <execution>
-                        <id>yarn run build</id>
+                        <id>build-frontend</id>
                         <goals>
-                            <goal>yarn</goal>
+                            <goal>npm</goal>
                         </goals>
+                        <phase>prepare-package</phase>
                         <configuration>
                             <arguments>run build</arguments>
-                            <workingDirectory>frontend</workingDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
-                        <phase>generate-resources</phase>
-                        <configuration>
-                            <target>
-                                <copy todir="${project.build.directory}/classes/public">
-                                    <fileset dir="frontend/build"/>
-                                </copy>
-                            </target>
-                        </configuration>
+                        <id>position-react-build</id>
                         <goals>
-                            <goal>run</goal>
+                            <goal>copy-resources</goal>
                         </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${frontend-src-dir}/build</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -167,6 +177,24 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.8</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.3.0</version>
             </plugin>
         </plugins>
     </build>
