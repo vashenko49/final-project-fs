@@ -12,6 +12,5 @@ addons:
       secure: b52d87d84629760e73a0facbf9ed228508c94cdb
 
 script:
-  - mvn clean install test
+  - mvn clean install test jacoco:report coveralls:report
   - sonar-scanner
-  - mvn clean test jacoco:report coveralls:report
