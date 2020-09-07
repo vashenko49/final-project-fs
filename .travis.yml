@@ -11,4 +11,4 @@ addons:
 
 script:
   - mvn clean install test jacoco:report coveralls:report
-  - sonar-scanner
+#  - sonar-scanner
