@@ -4,14 +4,14 @@ import Routing from './components/Routing/Routing';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blueGrey, yellow } from '@material-ui/core/colors';
 import { Provider } from 'react-redux';
-import configureStore from './store/store';
+import configureStore from './redux/store/store';
 import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 
 const outerTheme = createMuiTheme({
   palette: {
-    secondary: yellow,
-    primary: blueGrey
+    secondary: blueGrey,
+    primary: yellow
   }
 });
 
