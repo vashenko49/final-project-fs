@@ -8,6 +8,7 @@ const Button = ({background,color, content, onClick,}) => {
             width: "100px",
             minHeight: "30px",
             color: color ,
+            border:" 1px solid rgba(0,0,0,0)",
             borderRadius : "15px"
         },
         p : {
