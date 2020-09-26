@@ -1,7 +1,12 @@
 import React from 'react';
+import SelectLanguage from '../SelectLanguage/SelectLanguage';
 
 const MainPage = () => {
-  return <div>Main page</div>;
+  return (
+    <div>
+      <SelectLanguage />
+    </div>
+  );
 };
 
 export default MainPage;
