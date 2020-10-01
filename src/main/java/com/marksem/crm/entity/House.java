@@ -1,22 +1,21 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "house")
+@Table(name = "houses")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class House extends BaseEntity implements Serializable {
+public class House extends BaseEntity  {
     private String equipment;
     private String description;
     private Double area;
@@ -29,11 +28,11 @@ public class House extends BaseEntity implements Serializable {
     private Location location;
 
     @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<Task> tasks = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
     @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<Document> documents = new ArrayList<>();
+    private List<Document> documents = new ArrayList<>();
     @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<Booking> bookings = new ArrayList<>();
+    private List<Booking> bookings = new ArrayList<>();
     @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<Tgroup> tgroups = new ArrayList<>();
+    private List<TransactionGroup> transactionGroups = new ArrayList<>();
 }

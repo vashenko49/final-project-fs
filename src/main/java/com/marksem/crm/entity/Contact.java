@@ -1,20 +1,20 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.marksem.crm.entity.enums.TypeContact;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "contact")
+@Table(name = "contacts")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class Contact extends BaseEntity implements Serializable {
+public class Contact extends BaseEntity  {
     @Enumerated(EnumType.STRING)
     private TypeContact type;
     private String value;

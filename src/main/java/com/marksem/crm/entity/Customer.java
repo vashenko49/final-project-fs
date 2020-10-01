@@ -1,9 +1,10 @@
 package com.marksem.crm.entity;
 
+import com.marksem.crm.entity.enums.Language;
+import com.marksem.crm.entity.enums.Role;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,12 +12,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer extends BaseEntity implements Serializable {
+public class Customer extends BaseEntity {
     private String name;
     private String password;
     private String email;
@@ -31,7 +31,7 @@ public class Customer extends BaseEntity implements Serializable {
     private Language language;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<Contact> accounts = new ArrayList<>();
+    private List<Contact> accounts = new ArrayList<>();
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    List<House> houses = new ArrayList<>();
+    private List<House> houses = new ArrayList<>();
 }

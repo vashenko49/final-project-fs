@@ -1,27 +1,26 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.marksem.crm.entity.enums.TaskType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "task")
+@Table(name = "tasks")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class Task extends BaseEntity implements Serializable {
+public class Task extends BaseEntity {
     private String description;
     @Enumerated(EnumType.STRING)
     private TaskType type;
     private Boolean status;
-    @Column(name = "make_to")
-    private Date makeTo;
+    private Date deadline;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "house_id", referencedColumnName = "id", nullable = false, updatable = false)

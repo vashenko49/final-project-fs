@@ -1,20 +1,21 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.marksem.crm.entity.enums.TypeDocument;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "document")
+@Table(name = "documents")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class Document extends BaseEntity implements Serializable {
+public class Document extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private TypeDocument type;
     private String url;

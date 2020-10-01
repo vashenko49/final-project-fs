@@ -1,26 +1,26 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "booking")
+@Table(name = "bookings")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class Booking extends BaseEntity implements Serializable {
+public class Booking extends BaseEntity {
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date fromDate;
+    private Date fromDate;
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date toDate;
+    private Date toDate;
 
     private String comment;
     @Column(name = "is_own")

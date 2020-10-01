@@ -1,26 +1,24 @@
 package com.marksem.crm.entity;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "location")
+@Table(name = "locations")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-public class Location extends BaseEntity implements Serializable {
+public class Location extends BaseEntity {
     private String address;
-    private Double x;
-    private Double y;
+    private Double lat;
+    private Double lng;
 
     @OneToOne(mappedBy = "location")
     private House house;

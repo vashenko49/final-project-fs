@@ -1,4 +1,4 @@
-package com.marksem.crm.entity;
+package com.marksem.crm.entity.enums;
 
 public enum TypeDocument {
     PHOTO,
