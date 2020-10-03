@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFond from '../NotFond/NotFond';
-import Dashboard from "../Dashboard/Dashboard";
+import Dashboard from '../Dashboard/Dashboard';
 
 const Routing = () => {
   return (
