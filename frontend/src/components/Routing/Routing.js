@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFond from '../NotFond/NotFond';
-import MainPage from '../MainPage/MainPage';
+import Dashboard from "../Dashboard/Dashboard";
 
 const Routing = () => {
   return (
     <Switch>
-      <Route exact path="/" component={MainPage} />
+      <Route path="/" component={Dashboard} />
       <Route component={NotFond} />
     </Switch>
   );
