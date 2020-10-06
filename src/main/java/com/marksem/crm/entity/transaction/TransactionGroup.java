@@ -1,5 +1,7 @@
-package com.marksem.crm.entity;
+package com.marksem.crm.entity.transaction;
 
+import com.marksem.crm.entity.BaseEntity;
+import com.marksem.crm.entity.House;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -18,10 +21,10 @@ import java.util.List;
 public class TransactionGroup extends BaseEntity {
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date fromDate;
+    private Date fromDate;
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date toDate;
+    private Date toDate;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "house_id", referencedColumnName = "id", nullable = false, updatable = false)
     private House house;

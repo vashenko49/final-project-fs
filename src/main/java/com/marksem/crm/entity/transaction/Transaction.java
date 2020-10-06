@@ -1,5 +1,7 @@
-package com.marksem.crm.entity;
+package com.marksem.crm.entity.transaction;
 
+import com.marksem.crm.entity.BaseEntity;
+import com.marksem.crm.entity.enums.Currency;
 import com.marksem.crm.entity.enums.TypeOfFinance;
 import lombok.*;
 
@@ -12,8 +14,10 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Transaction extends BaseEntity  {
+public class Transaction extends BaseEntity {
     private Double sum;
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
     @Enumerated(EnumType.STRING)
     private TypeOfFinance type;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)

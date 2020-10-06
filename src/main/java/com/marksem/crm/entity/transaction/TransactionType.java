@@ -1,5 +1,6 @@
-package com.marksem.crm.entity;
+package com.marksem.crm.entity.transaction;
 
+import com.marksem.crm.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

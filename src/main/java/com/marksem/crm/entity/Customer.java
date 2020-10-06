@@ -1,5 +1,6 @@
 package com.marksem.crm.entity;
 
+import com.marksem.crm.entity.enums.Currency;
 import com.marksem.crm.entity.enums.Language;
 import com.marksem.crm.entity.enums.Role;
 import lombok.*;
@@ -29,6 +30,8 @@ public class Customer extends BaseEntity {
     private Role role;
     @Enumerated(EnumType.STRING)
     private Language language;
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
