@@ -1,3 +1,10 @@
 {
-  "select-language": "Language"
+  "select-language": "Language",
+  "headerMainMenuHomeTab": "Home",
+  "headerMainMenuSettingsTab": "Settings",
+  "headerSubMenuOverviewTab": "Overview",
+  "headerSubMenuHousesTab": "Houses",
+  "headerSubMenuDocumentsTab": "Documents",
+  "headerSubMenuStatisticsTab": "Statistics",
+  "headerSearchPlaceholder": "Search"
 }
