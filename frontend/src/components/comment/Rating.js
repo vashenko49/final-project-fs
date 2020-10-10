@@ -46,6 +46,7 @@ export default function CustomizedRatings({ rating }) {
     <div>
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Rating
+          disabled
           name="customized-empty"
           defaultValue={rating}
           precision={0.5}
