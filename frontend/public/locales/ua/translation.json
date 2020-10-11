@@ -1,3 +1,10 @@
 {
-  "select-language": "Мова"
+  "select-language": "Мова",
+  "headerMainMenuHomeTab": "Головна",
+  "headerMainMenuSettingsTab": "Налаштування",
+  "headerSubMenuOverviewTab": "Панель",
+  "headerSubMenuHousesTab": "Будинки",
+  "headerSubMenuDocumentsTab": "Документи",
+  "headerSubMenuStatisticsTab": "Статистика",
+  "headerSearchPlaceholder": "Пошук"
 }
