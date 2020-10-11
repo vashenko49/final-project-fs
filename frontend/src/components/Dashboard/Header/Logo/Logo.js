@@ -1,11 +1,19 @@
 import React from 'react';
 
-import './Logo.scss';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+
+const useStyles = makeStyles(() => ({
+  logoSpan: {
+    color: '#4AD584'
+  }
+}));
 
 const Logo = () => {
+  const classes = useStyles();
+
   return (
-    <p className="flexThreeInAROW">
-      MARKSEM <span className="logo-span">CRM</span>
+    <p>
+      MARKSEM <span className={classes.logoSpan}>CRM</span>
     </p>
   );
 };

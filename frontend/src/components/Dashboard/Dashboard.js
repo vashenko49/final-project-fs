@@ -97,11 +97,12 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
+    padding: '2%',
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+    paddingTop: '220px'
   },
   'content-right': {
     marginRight: -drawerWidth
@@ -114,6 +115,9 @@ const styles = theme => ({
   },
   'contentShift-right': {
     marginRight: 0
+  },
+  contentHeaderClosed: {
+    paddingTop: '150px'
   }
 });
 
@@ -148,13 +152,17 @@ const Dashboard = props => {
           <Header />
         </AppBar>
         <main
-          className={classNames(classes.content, classes['content-right'], {
-            [classes.contentShift]: openSideMenu,
-            [classes['contentShift-right']]: openSideMenu
-          })}
+          className={classNames(
+            classes.content,
+            classes['content-right'],
+            !headerOpened && classes.contentHeaderClosed,
+            {
+              [classes.contentShift]: openSideMenu,
+              [classes['contentShift-right']]: openSideMenu
+            }
+          )}
         >
-          {/* PLACE MAIN CONTAINER HERE */}
-          <div className={classes.drawerHeader} />
+          {/* PUT MAIN CONTENT HERE */}
         </main>
         {drawer}
       </div>
