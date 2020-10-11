@@ -24,6 +24,12 @@ const useStyles = makeStyles({
   },
   iconLabelWrapper: {
     flexDirection: 'row'
+  },
+  subNavBar: {
+    flex: '0 0 100%'
+  },
+  closedSubNavBar: {
+    display: 'none'
   }
 });
 
@@ -43,7 +49,7 @@ const HomeSubNavBar = () => {
   };
 
   return (
-    <div className={headerOpened ? 'subNavBar' : 'closedSubNavBar'}>
+    <div className={headerOpened ? classes.subNavBar : classes.closedSubNavBar}>
       <Tabs
         className={classes.tabs}
         value={value}
