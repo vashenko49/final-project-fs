@@ -4,7 +4,6 @@ import HeaderNavBar from './HeaderNavBar/HeaderNavBar';
 import Search from './Search/Search';
 
 import HomeSubNavBar from './SubNavBar/HomeSubNavBar';
-import SettingsSubNavBar from './SubNavBar/SettingsSubNavBar';
 import { Route, Switch } from 'react-router-dom';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
@@ -35,7 +34,7 @@ const Header = () => {
           <HomeSubNavBar />
         </Route>
         <Route path="/settings">
-          <SettingsSubNavBar />
+          <HomeSubNavBar />
         </Route>
       </Switch>
     </div>
