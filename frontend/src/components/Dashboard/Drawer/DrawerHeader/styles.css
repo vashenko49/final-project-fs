@@ -1,0 +1,22 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.iconElem {
+    margin-left: 10px;
+    opacity: 30%;
+}
+.iconElem:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.iconContainer {
+    display: flex;
+    padding-top: 15px;
+}

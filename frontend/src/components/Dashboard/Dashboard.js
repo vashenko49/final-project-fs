@@ -12,6 +12,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
+import DrawerHeader from './Drawer/DrawerHeader/Header';
 
 const drawerWidth = 450;
 
@@ -136,7 +137,10 @@ const Dashboard = props => {
         paper: classes.drawerPaper
       }}
     >
-      <div className={classes.drawerHeader} />
+      <div className={classes.drawerHeader}>
+        <DrawerHeader />
+        {/* Контент под хедером */}
+      </div>
     </Drawer>
   );
 
