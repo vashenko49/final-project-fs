@@ -1,13 +1,12 @@
 package com.marksem.crm.facade;
 
-import com.marksem.crm.contract.DefaultIml;
+import com.marksem.crm.contract.Default;
 import com.marksem.crm.contract.DocumentImp;
 import com.marksem.crm.dto.request.DocumentDtoRequest;
 import com.marksem.crm.dto.response.DocumentDtoResponse;
 import com.marksem.crm.entity.Document;
 import com.marksem.crm.service.DocumentService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +15,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class DocumentFacade implements DefaultIml<DocumentDtoRequest, DocumentDtoResponse>, DocumentImp<DocumentDtoRequest, DocumentDtoResponse> {
-    @Autowired
-    private DocumentService documentService;
+public class DocumentFacade implements Default<DocumentDtoRequest, DocumentDtoResponse>, DocumentImp<DocumentDtoRequest, DocumentDtoResponse> {
+    final private DocumentService documentService;
+    final private ModelMapper mapper;
 
-    @Autowired
-    private ModelMapper mapper;
+    public DocumentFacade(DocumentService documentService, ModelMapper mapper) {
+        this.documentService = documentService;
+        this.mapper = mapper;
+    }
 
     @Override
     public DocumentDtoResponse save(DocumentDtoRequest obj) {

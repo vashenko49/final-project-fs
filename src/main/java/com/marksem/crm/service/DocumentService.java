@@ -1,9 +1,9 @@
 package com.marksem.crm.service;
 
+import com.marksem.crm.contract.Default;
+import com.marksem.crm.contract.DocumentImp;
 import com.marksem.crm.entity.Document;
 import com.marksem.crm.repos.DocumentRepository;
-import com.marksem.crm.service.imp.DocumentServiceIml;
-import com.marksem.crm.service.imp.ServiceIml;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -15,10 +15,8 @@ import java.util.Optional;
 
 @Service("documentService")
 @Transactional(isolation = Isolation.SERIALIZABLE)
-public class DocumentService implements ServiceIml<Document>, DocumentServiceIml<Document> {
-
-
-    final DocumentRepository documentRepository;
+public class DocumentService implements Default<Document, Document>, DocumentImp<Document, Document> {
+    final private DocumentRepository documentRepository;
 
     public DocumentService(DocumentRepository documentRepository) {
         this.documentRepository = documentRepository;

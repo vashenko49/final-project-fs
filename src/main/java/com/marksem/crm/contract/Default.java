@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 import java.util.Optional;
 
-public interface DefaultIml<EntReq, EntRes> {
+public interface Default <EntReq, EntRes>{
     EntRes save(EntReq obj);
 
     EntRes update(EntReq obj);
