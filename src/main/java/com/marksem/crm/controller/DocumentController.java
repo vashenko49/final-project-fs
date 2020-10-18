@@ -37,7 +37,7 @@ public class DocumentController {
         return documentFacade.save(document);
     }
 
-    @PostMapping("")
+    @PostMapping("/all")
     public void createDocument(@Validated(New.class) @RequestBody List<DocumentDtoRequest> documents) {
         documentFacade.saveAll(documents);
     }
