@@ -31,14 +31,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function UserContainer() {
+function UserContainer({ name, role, avatar }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.nameContainer}>
-        <div className={classes.name}>Dima Ovsienko</div>
-        <div className={classes.role}>Investor</div>
+        <div className={classes.name}>{name}</div>
+        <div className={classes.role}>{role}</div>
       </div>
       <Avatar alt={'avatar'} className={classes.avatar}>
         UN
