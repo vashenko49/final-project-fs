@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SelectLanguage from '../../../SelectLanguage/SelectLanguage';
 import UserContainer from './UserContainer';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import './styles.css';
 import Badge from '@material-ui/core/Badge';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserInfo } from '../../../../redux/action/drawerheader/DrawerHeader';
+import { useSelector } from 'react-redux';
 
 export default function DrawerHeader() {
-  const [ready, setReady] = useState(false);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (ready === false) {
-      dispatch(getUserInfo());
-      setReady(true);
-    }
-  }, [ready, dispatch]);
-
   const userInfo = useSelector(state => {
-    return state.drawerHeader;
+    return state.System.userInfo;
   });
 
   function showMail() {}

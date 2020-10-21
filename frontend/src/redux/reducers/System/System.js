@@ -1,7 +1,14 @@
 import * as SYSTEM from '../../config/System';
 
 export const initialState = {
-  load: false
+  load: false,
+  userInfo: {
+    userMail: 0,
+    userNotifications: 0,
+    userName: 'User',
+    userRole: 'Role',
+    userAvatar: ''
+  }
 };
 
 export default (state = initialState, action) => {
@@ -15,6 +22,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         load: false
+      };
+    case SYSTEM.GET_CUSTOMER_INFO:
+      return {
+        ...state,
+        userInfo: action.payload
       };
     default:
       return state;
