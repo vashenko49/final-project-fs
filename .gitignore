@@ -34,3 +34,7 @@ build/
 frontend/yarn.lock
 frontend/.eslintcache
 frontend/.stylelintcache
+
+# dependencies
+/yarn.lock
+/node_modules
