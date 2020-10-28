@@ -1,11 +1,13 @@
 import * as CURRENTUSER from '../../config/CurrentUser';
 
 export const initialState = {
-  userMail: 0,
-  userNotifications: 0,
-  userName: 'User',
-  userRole: 'Role',
-  userAvatar: ''
+  userInfo: {
+    userMail: 0,
+    userNotifications: 0,
+    userName: 'User',
+    userRole: 'Role',
+    userAvatar: ''
+  }
 };
 
 export default (state = initialState, action) => {
