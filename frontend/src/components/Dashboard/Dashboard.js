@@ -13,7 +13,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import DrawerHeader from './Drawer/DrawerHeader/Header';
-import { getUserInfo } from '../../redux/action/System';
+import { getUserInfo } from '../../redux/action/CurrentUser';
 
 const drawerWidth = 450;
 

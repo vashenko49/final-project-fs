@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 export default function DrawerHeader() {
   const userInfo = useSelector(state => {
-    return state.System.userInfo;
+    return state.CurrentUser;
   });
 
   function showMail() {}
