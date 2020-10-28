@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { headerOpen, headerClose } from '../../redux/action/Header';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -12,6 +12,8 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
+import DrawerHeader from './Drawer/DrawerHeader/Header';
+import { getUserInfo } from '../../redux/action/CurrentUser';
 
 const drawerWidth = 450;
 
@@ -126,6 +128,9 @@ const Dashboard = props => {
   const { classes } = props;
   const headerOpened = useSelector(state => state.Header.headerOpen);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserInfo());
+  });
 
   const drawer = (
     <Drawer
@@ -136,7 +141,10 @@ const Dashboard = props => {
         paper: classes.drawerPaper
       }}
     >
-      <div className={classes.drawerHeader} />
+      <div className={classes.drawerHeader}>
+        <DrawerHeader />
+        {/* Контент под хедером */}
+      </div>
     </Drawer>
   );
 
