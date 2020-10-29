@@ -6,5 +6,6 @@
   "headerSubMenuHousesTab": "Houses",
   "headerSubMenuDocumentsTab": "Documents",
   "headerSubMenuStatisticsTab": "Statistics",
-  "headerSearchPlaceholder": "Search"
+  "headerSearchPlaceholder": "Search",
+  "buttonPreviewDescriptionEndIcon": "Detail"
 }

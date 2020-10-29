@@ -6,5 +6,6 @@
   "headerSubMenuHousesTab": "Будинки",
   "headerSubMenuDocumentsTab": "Документи",
   "headerSubMenuStatisticsTab": "Статистика",
-  "headerSearchPlaceholder": "Пошук"
+  "headerSearchPlaceholder": "Пошук",
+  "buttonPreviewDescriptionEndIcon": "Детально"
 }
