@@ -7,5 +7,16 @@
   "headerSubMenuDocumentsTab": "Документи",
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Пошук",
-  "buttonPreviewDescriptionEndIcon": "Детально"
+  "buttonPreviewDescriptionEndIcon": "Детально",
+  "managementServiceListTitle": "Замовити послуги управління",
+  "managementServiceListSink": "Сантехніка",
+  "managementServiceListElectricity": "Електрика",
+  "managementServiceListGarden": "Благоустрій території",
+  "managementServiceListLock": "Система охорони",
+  "managementServiceListAirConditioner": "Вентиляція та кодиціонування",
+  "managementServiceListTemperature": "Опалення",
+  "managementServiceListGardenWork": "Фасадні роботи",
+  "managementServiceListWindow": "Вікна та двері",
+  "managementServiceListOther": "Інше"
+
 }

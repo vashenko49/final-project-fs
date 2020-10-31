@@ -7,12 +7,13 @@ import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
   btn: propsStyle => ({
-    minWidth: propsStyle.minWidthBtn,
+    width: propsStyle.widthBtn,
     background: '#FFFFFF 0% 0% no-repeat padding-box',
     boxShadow: '0px 1px 3px #00000033',
     borderRadius: '20px',
     opacity: '1',
     padding: '9px 17px 9px 9px',
+    textTransform: 'none',
     '& .MuiButton-startIcon': {
       margin: 0
     },
@@ -79,7 +80,7 @@ const useStyles = makeStyles(() => ({
  * @param title PropTypes.string.isRequired
  * @param titleSize PropTypes.string default{'16px/21px'}
  * @param description PropTypes.string
- * @param minWidthBtn PropTypes.string default{'290px'}
+ * @param widthBtn PropTypes.string default{'290px'}
  * @param hasDescriptionEndIcon PropTypes.bool default{false}
  * @param onClick PropTypes.func.isRequired
  */
@@ -89,12 +90,12 @@ const ButtonPreview = ({
   title,
   titleSize,
   description,
-  minWidthBtn,
+  widthBtn,
   hasDescriptionEndIcon,
   onClick,
   ...otherProps
 }) => {
-  const classes = useStyles({ titleSize, startIconColor, minWidthBtn });
+  const classes = useStyles({ titleSize, startIconColor, widthBtn });
   const { t } = useTranslation();
 
   return (
@@ -137,8 +138,8 @@ ButtonPreview.propTypes = {
 ButtonPreview.defaultProps = {
   titleSize: '16px/21px',
   startIconColor: '#F88B38',
-  minWidthBtn: '290px',
-  hasDescriptionEndIcon: true
+  widthBtn: '290px',
+  hasDescriptionEndIcon: false
 };
 
 export default ButtonPreview;

@@ -7,5 +7,15 @@
   "headerSubMenuDocumentsTab": "Documents",
   "headerSubMenuStatisticsTab": "Statistics",
   "headerSearchPlaceholder": "Search",
-  "buttonPreviewDescriptionEndIcon": "Detail"
+  "buttonPreviewDescriptionEndIcon": "Detail",
+  "managementServiceListTitle": "Order management services",
+  "managementServiceListSink": "Plumbing",
+  "managementServiceListElectricity": "Electricity",
+  "managementServiceListGarden": "Landscaping",
+  "managementServiceListLock": "Security system",
+  "managementServiceListAirConditioner": "Ventilation and air conditioning",
+  "managementServiceListTemperature": "Heating",
+  "managementServiceListGardenWork": "Facade works",
+  "managementServiceListWindow": "Windows and doors",
+  "managementServiceListOther": "Other"
 }
