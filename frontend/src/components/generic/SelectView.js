@@ -21,7 +21,9 @@ const useStyles = makeStyles(() => ({
   },
   selectInput: {
     font: 'normal normal normal 12px/16px Roboto',
+    borderRadius: '2px',
     padding: '8px 0 8px 10px',
+    textAlign: 'left',
     '&:focus': {
       background: '#FFFFFF 0% 0% no-repeat padding-box',
       borderRadius: 'inherit'
@@ -32,12 +34,7 @@ const useStyles = makeStyles(() => ({
   },
   inputOutline: {
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#00000034',
-      borderWidth: '0px'
-    },
-    '& .MuiOutlinedInput-root.Mui-focused fieldset': {
-      borderColor: '#00000034',
-      borderWidth: '0px'
+      border: '0.5px solid #00000034'
     }
   },
   formStyle: {
@@ -45,7 +42,7 @@ const useStyles = makeStyles(() => ({
     background: '#FFFFFF 0% 0% no-repeat padding-box'
   },
   formStyleDropDown: {
-    borderRadius: '0 0 4px 4px'
+    borderRadius: '0 0 2px 2px'
   },
   option: {
     font: 'normal normal normal 12px/16px Roboto',
@@ -54,12 +51,6 @@ const useStyles = makeStyles(() => ({
   },
   menuList: {
     padding: '4px 0 4px 0'
-  },
-  openSelect: {
-    borderRadius: '4px 4px 0 0'
-  },
-  closeSelect: {
-    borderRadius: '4px'
   }
 }));
 
@@ -68,34 +59,28 @@ const useStyles = makeStyles(() => ({
  * @param nameSelect - PropTypes.string.isRequired
  * @param optionValues - PropTypes.array.isRequired
  * @param callback - the function takes one argument to return the item that was selected
+ * @param error - PropTypes.bool default{false}
  */
-const SelectView = ({ nameSelect, optionValues, callback }) => {
+const SelectView = ({ nameSelect, optionValues, callback, error, ...other }) => {
   const classes = useStyles();
   const [field, setField] = React.useState('');
-  const [openSelect, setOpenSelect] = React.useState(false);
 
   const handleChange = event => {
     setField(event.target.value);
     callback(event.target.value);
   };
 
-  const handleStyleOpen = () => {
-    setOpenSelect(prevState => !prevState);
-  };
-
   return (
     <div className={classes.selectBlock}>
       <p className={classes.nameSelect}>{nameSelect}</p>
       <FormControl
+        error={error}
         variant="outlined"
         className={classNames(classes.formControl, classes.inputOutline)}
       >
         <Select
-          className={classNames(
-            classes.select,
-            classes.formStyle,
-            openSelect ? classes.openSelect : classes.closeSelect
-          )}
+          {...other}
+          className={classNames(classes.select, classes.formStyle)}
           MenuProps={{
             classes: {
               paper: classNames(classes.formStyle, classes.formStyleDropDown),
@@ -113,8 +98,6 @@ const SelectView = ({ nameSelect, optionValues, callback }) => {
           }}
           value={field}
           onChange={handleChange}
-          onOpen={handleStyleOpen}
-          onClose={handleStyleOpen}
           inputProps={{
             name: 'age',
             id: 'outlined-age-native-simple',
@@ -134,7 +117,12 @@ const SelectView = ({ nameSelect, optionValues, callback }) => {
   );
 };
 
+SelectView.defaultProps = {
+  error: false
+};
+
 SelectView.propTypes = {
+  error: PropTypes.bool,
   optionValues: PropTypes.array.isRequired,
   nameSelect: PropTypes.string.isRequired,
   callback: function(props, propName, componentName) {

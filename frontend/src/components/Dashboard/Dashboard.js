@@ -14,7 +14,7 @@ import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import DrawerHeader from './Drawer/DrawerHeader/Header';
 import { getUserInfo } from '../../redux/action/CurrentUser';
-import ManagementServiceList from '../ManagementServiceList/ManagementServiceList';
+import ManagementService from '../ManagementService/ManagementService';
 
 const drawerWidth = 450;
 
@@ -172,7 +172,7 @@ const Dashboard = props => {
           )}
         >
           {/* PUT MAIN CONTENT HERE */}
-          <ManagementServiceList />
+          <ManagementService />
         </main>
         {drawer}
       </div>

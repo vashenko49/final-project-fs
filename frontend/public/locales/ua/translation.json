@@ -8,6 +8,18 @@
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Пошук",
   "buttonPreviewDescriptionEndIcon": "Детально",
+  "dataPickerLocal": "ua",
+  "dataPickerLocalOk": "Ок",
+  "dataPickerLocalCancel": "Відміна",
+  "dataPickerLocalToday": "Зараз",
+  "createManagementServiceDecline": "Повернутись",
+  "createManagementServiceAccept": "Відправити запит",
+  "createManagementServicePlaceholderComment": "Залишити коментар",
+  "createManagementServiceChooseDate": "Оберіть дату візиту спеціаліста",
+  "createManagementServiceChooseHouse": "Будинок",
+  "createManagementServiceTitle": "Запит на послуги управління",
+  "createManagementServiceHelp": "Після підтвердження менеджер отримає Ваш запит і зв'яжеться для уточнення деталей. Гарного Вам дня!",
+  "createManagementServiceDescription": "Опишіть будь ласка, що ми можемо зробити для Вас, оберіть будинок та дату візиту спеціаліста",
   "managementServiceListTitle": "Замовити послуги управління",
   "managementServiceListSink": "Сантехніка",
   "managementServiceListElectricity": "Електрика",
@@ -18,5 +30,4 @@
   "managementServiceListGardenWork": "Фасадні роботи",
   "managementServiceListWindow": "Вікна та двері",
   "managementServiceListOther": "Інше"
-
 }
