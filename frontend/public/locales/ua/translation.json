@@ -7,5 +7,7 @@
   "headerSubMenuDocumentsTab": "Документи",
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Пошук",
-  "buttonPreviewDescriptionEndIcon": "Детально"
+  "buttonPreviewDescriptionEndIcon": "Детально",
+  "quickAccess" : "Швидкий Доступ",
+  "quickAccessShow" : "Переглянути Аналітику"
 }

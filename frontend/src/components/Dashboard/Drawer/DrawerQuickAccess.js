@@ -25,8 +25,10 @@ const useStyles = makeStyles({
   cardsContainer: {
     width: 356,
     height: 130,
-    backgroundColor: '#99A0A3',
     margin: '22px 30px 0 30px'
+  },
+  vacant: {
+    marginTop: 10
   }
 });
 
@@ -35,11 +37,16 @@ const DrawerQuickAccess = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className={classes.title}>Швидкий доступ</div>
-      <div className={classes.subtitle}>Переглянути аналітику btn </div>
+      <div className={classes.title}>{t('quickAccess')}</div>
+      <div className={classes.subtitle}>
+        {t('quickAccessShow')}
+        <button>1</button>
+      </div>
       <div className={classes.cardsContainer}>
-        <ButtonPreview title="Власні будинки" />
-        <ButtonPreview title="Власні будинки" />
+        <ButtonPreview title="Власні Будинки" />
+        <div className={classes.vacant}>
+          <ButtonPreview title="Власні Будинки" />
+        </div>
       </div>
     </div>
   );

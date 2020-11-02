@@ -7,5 +7,7 @@
   "headerSubMenuDocumentsTab": "Documents",
   "headerSubMenuStatisticsTab": "Statistics",
   "headerSearchPlaceholder": "Search",
-  "buttonPreviewDescriptionEndIcon": "Detail"
+  "buttonPreviewDescriptionEndIcon": "Detail",
+  "quickAccess" : "Quick Access",
+  "quickAccessShow" : "View Аnalytics"
 }
