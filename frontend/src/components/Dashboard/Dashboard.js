@@ -18,7 +18,6 @@ import DrawerManager from './Drawer/DrawerManager/DrawerManager';
 import { getManagerInfo } from '../../redux/action/DrawerManager';
 import ManagementService from '../ManagementService/ManagementService';
 import DrawerQuickAccess from './Drawer/DrawerQuickAccess/DrawerQuickAccess';
-import Welcome from '../Welcome/Welcome';
 
 const drawerWidth = 450;
 
@@ -134,7 +133,7 @@ const Dashboard = props => {
   const headerOpened = useSelector(state => state.Header.headerOpen);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUserInfo());
+    dispatch(getUserInfo(), getManagerInfo());
   });
 
   const drawer = (
