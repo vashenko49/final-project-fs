@@ -14,10 +14,11 @@ import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import DrawerHeader from './Drawer/DrawerHeader/Header';
 import { getUserInfo } from '../../redux/action/CurrentUser';
-import DrawerManager from './Drawer/DrawerManager';
+import DrawerManager from './Drawer/DrawerManager/DrawerManager';
 import { getManagerInfo } from '../../redux/action/DrawerManager';
 import ManagementService from '../ManagementService/ManagementService';
-import DrawerQuickAccess from './Drawer/DrawerQuickAccess';
+import DrawerQuickAccess from './Drawer/DrawerQuickAccess/DrawerQuickAccess';
+import Welcome from '../Welcome/Welcome';
 
 const drawerWidth = 450;
 
@@ -177,6 +178,7 @@ const Dashboard = props => {
           )}
         >
           {/* PUT MAIN CONTENT HERE */}
+          <ManagementService />
         </main>
         {drawer}
       </div>

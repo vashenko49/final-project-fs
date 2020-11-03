@@ -31,10 +31,10 @@
   "managementServiceListGardenWork": "Facade works",
   "managementServiceListWindow": "Windows and doors",
   "managementServiceListOther": "Other",
-   "Welcome": {
-    "Hello" : "Hello",
-    "Updates" : "Latest updates"
-  },
-  "quickAccess" : "Quick Access",
-  "quickAccessShow" : "View Аnalytics"
+  "welcomeHello" : "Hello",
+  "welcomeUpdates" : "Latest updates",
+  "drawerQuickAccess" : "Quick Access",
+  "drawerQuickAccessShow" : "View Аnalytics",
+  "drawerQuickAccessOwnHouses" : "Own Houses",
+  "drawerQuickAccessVacantHouses" : "Vacant Houses"
 }

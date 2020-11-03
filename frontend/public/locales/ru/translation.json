@@ -30,11 +30,11 @@
   "managementServiceListGardenWork": "Фасадные работы",
   "managementServiceListWindow": "Окна и двери",
   "managementServiceListOther": "Другое",
-  "Welcome": {
-    "Hello" : "Привет",
-    "Updates" : "Последние обновление"
-  },
+  "welcomeHello" : "Привет",
+  "welcomeUpdates" : "Последние обновление",
   "buttonPreviewDescriptionEndIcon": "Детально",
-  "quickAccess" : "Быстрый Доступ",
-  "quickAccessShow" : "Посмотреть Аналитику"
+  "drawerQuickAccess" : "Быстрый Доступ",
+  "drawerQuickAccessShow" : "Посмотреть Аналитику",
+  "drawerQuickAccessOwnHouses" : "Собственные  Дома",
+  "drawerQuickAccessVacantHouses" : "Вакантные Дома"
 }

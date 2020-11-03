@@ -29,12 +29,12 @@
   "managementServiceListTemperature": "Опалення",
   "managementServiceListGardenWork": "Фасадні роботи",
   "managementServiceListWindow": "Вікна та двері",
-   "Welcome": {
-    "Hello" : "Вітаю",
-    "Updates" : "Останні оновлення"
-  },
+  "welcomeHello" : "Hello",
+  "welcomeUpdates" : "Latest updates",
   "managementServiceListOther": "Інше",
   "buttonPreviewDescriptionEndIcon": "Детально",
-  "quickAccess" : "Швидкий Доступ",
-  "quickAccessShow" : "Переглянути Аналітику"
+  "drawerQuickAccess" : "Швидкий Доступ",
+  "drawerQuickAccessShow" : "Переглянути Аналітику",
+  "drawerQuickAccessOwnHouses" : "Власні Будинки",
+  "drawerQuickAccessVacantHouses" : "Вакантні Будинки"
 }

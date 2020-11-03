@@ -6,11 +6,13 @@ import CurrentUser from './CurrentUser/CurrentUser';
 
 import DrawerManager from './DrawerManager/DrawerManager';
 import ManagementService from './ManagementService/ManagementService';
+import QuickAccess from './QuickAccess/QuickAccess';
 
 export default combineReducers({
   System,
   Header,
   CurrentUser,
   DrawerManager,
-  ManagementService
+  ManagementService,
+  QuickAccess
 });
