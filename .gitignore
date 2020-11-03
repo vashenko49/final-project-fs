@@ -37,5 +37,6 @@ frontend/.stylelintcache
 
 # dependencies
 /yarn.lock
+*.lock
 /node_modules
 /package-lock.json

@@ -43,9 +43,20 @@ const DrawerQuickAccess = () => {
         <button>1</button>
       </div>
       <div className={classes.cardsContainer}>
-        <ButtonPreview title="Власні Будинки" />
+        <ButtonPreview
+          widthBtn="356px"
+          hasDescriptionEndIcon={true}
+          description="Власні будинки"
+          title="2"
+          startIconColor="#00D0FF"
+        />
         <div className={classes.vacant}>
-          <ButtonPreview title="Власні Будинки" />
+          <ButtonPreview
+            widthBtn="356px"
+            hasDescriptionEndIcon={true}
+            description="Вакантні будинки"
+            title="M-2 ID 07000"
+          />
         </div>
       </div>
     </div>
