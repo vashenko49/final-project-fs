@@ -10,7 +10,7 @@ import { getHouses } from '../../../../redux/action/QuickAccess';
 import QuickAccessSelector from '../../../../redux/selector/QuickAccessSelector';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   title: {
     margin: '20px 136px 0 136px',
     font: 'normal normal medium 18px/24px Roboto',
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
     fontSize: 12,
     color: '#FFFFFF'
   }
-});
+}));
 
 const DrawerQuickAccess = ({ onClick }) => {
   const houses = useSelector(QuickAccessSelector.getHouses);

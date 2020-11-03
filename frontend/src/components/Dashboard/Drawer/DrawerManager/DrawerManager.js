@@ -11,7 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   card: {
     width: 356,
     height: 110,
@@ -57,7 +57,7 @@ const useStyles = makeStyles({
     width: 67,
     height: 67
   }
-});
+}));
 
 const DrawerManager = () => {
   const classes = useStyles();
@@ -76,7 +76,7 @@ const DrawerManager = () => {
             src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" /* src={manager.photo} */
           />
           <CardContent>
-            <div className={classes.line}></div>
+            <div className={classes.line}>{}</div>
             <Typography className={classes.name}>
               <span>{managerInfo.managerName}</span>
             </Typography>
