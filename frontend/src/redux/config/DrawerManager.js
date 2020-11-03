@@ -1,0 +1,1 @@
+export const GET_MANAGER_INFO = 'GET_MANAGER_INFO';

@@ -8,6 +8,7 @@
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Поиск",
   "buttonPreviewDescriptionEndIcon": "Детально",
+  "personalManager" : "Персональный Менеджер",
   "dataPickerLocal": "ru",
   "dataPickerLocalOk": "Ок",
   "dataPickerLocalCancel": "Отмена",
@@ -30,4 +31,8 @@
   "managementServiceListGardenWork": "Фасадные работы",
   "managementServiceListWindow": "Окна и двери",
   "managementServiceListOther": "Другое"
-}
+  "managementServiceListOther": "Другое",
+  "Welcome": {
+    "Hello" : "Привет",
+    "Updates" : "Последние обновление"
+  },

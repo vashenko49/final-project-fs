@@ -8,6 +8,7 @@
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Пошук",
   "buttonPreviewDescriptionEndIcon": "Детально",
+  "personalManager" : "Персональний Менеджер",
   "dataPickerLocal": "ua",
   "dataPickerLocalOk": "Ок",
   "dataPickerLocalCancel": "Відміна",
@@ -29,5 +30,10 @@
   "managementServiceListTemperature": "Опалення",
   "managementServiceListGardenWork": "Фасадні роботи",
   "managementServiceListWindow": "Вікна та двері",
+  "managementServiceListOther": "Інше",
+   "Welcome": {
+    "Hello" : "Вітаю",
+    "Updates" : "Останні оновлення"
+  },
   "managementServiceListOther": "Інше"
 }
