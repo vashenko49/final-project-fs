@@ -7,7 +7,6 @@
   "headerSubMenuDocumentsTab": "Документи",
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Пошук",
-  "buttonPreviewDescriptionEndIcon": "Детально",
   "personalManager" : "Персональний Менеджер",
   "dataPickerLocal": "ua",
   "dataPickerLocalOk": "Ок",
@@ -30,10 +29,12 @@
   "managementServiceListTemperature": "Опалення",
   "managementServiceListGardenWork": "Фасадні роботи",
   "managementServiceListWindow": "Вікна та двері",
+  "welcomeHello" : "Hello",
+  "welcomeUpdates" : "Latest updates",
   "managementServiceListOther": "Інше",
-   "Welcome": {
-    "Hello" : "Вітаю",
-    "Updates" : "Останні оновлення"
-  },
-  "managementServiceListOther": "Інше"
+  "buttonPreviewDescriptionEndIcon": "Детально",
+  "drawerQuickAccess" : "Швидкий Доступ",
+  "drawerQuickAccessShow" : "Переглянути Аналітику",
+  "drawerQuickAccessOwnHouses" : "Власні Будинки",
+  "drawerQuickAccessVacantHouses" : "Вакантні Будинки"
 }

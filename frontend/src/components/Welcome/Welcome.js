@@ -30,9 +30,9 @@ const Welcome = () => {
   });
   return (
     <div className={classes.welcome}>
-      {t('Welcome.Hello')}, {userInfo.userName}!
+      {t('welcomeHello')}, {userInfo.userName}!
       <p className={classes.updates}>
-        {t('Welcome.Updates')}: <span className={classes.date}></span>
+        {t('welcomeUpdates')}: <span className={classes.date}></span>
       </p>
     </div>
   );

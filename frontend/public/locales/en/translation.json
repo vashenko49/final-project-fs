@@ -20,7 +20,6 @@
   "createManagementServiceTitle": "Request for management services",
   "createManagementServiceHelp": "After confirmation, the manager will receive your request and contact you for details. Have a good day!",
   "createManagementServiceDescription": "Please describe what we can do for you, choose the house and the date of the specialist's visit",
-  "headerSearchPlaceholder": "Search",
   "personalManager" : "Personal Manager",
   "managementServiceListTitle": "Order management services",
   "managementServiceListSink": "Plumbing",
@@ -32,8 +31,10 @@
   "managementServiceListGardenWork": "Facade works",
   "managementServiceListWindow": "Windows and doors",
   "managementServiceListOther": "Other",
-   "Welcome": {
-    "Hello" : "Hello",
-    "Updates" : "Latest updates"
-  }
+  "welcomeHello" : "Hello",
+  "welcomeUpdates" : "Latest updates",
+  "drawerQuickAccess" : "Quick Access",
+  "drawerQuickAccessShow" : "View Analytics",
+  "drawerQuickAccessOwnHouses" : "Own Houses",
+  "drawerQuickAccessVacantHouses" : "Vacant Houses"
 }

@@ -7,7 +7,6 @@
   "headerSubMenuDocumentsTab": "Документы",
   "headerSubMenuStatisticsTab": "Статистика",
   "headerSearchPlaceholder": "Поиск",
-  "buttonPreviewDescriptionEndIcon": "Детально",
   "personalManager" : "Персональный Менеджер",
   "dataPickerLocal": "ru",
   "dataPickerLocalOk": "Ок",
@@ -30,9 +29,12 @@
   "managementServiceListTemperature": "Отопление",
   "managementServiceListGardenWork": "Фасадные работы",
   "managementServiceListWindow": "Окна и двери",
-  "managementServiceListOther": "Другое"
   "managementServiceListOther": "Другое",
-  "Welcome": {
-    "Hello" : "Привет",
-    "Updates" : "Последние обновление"
-  },
+  "welcomeHello" : "Привет",
+  "welcomeUpdates" : "Последние обновление",
+  "buttonPreviewDescriptionEndIcon": "Детально",
+  "drawerQuickAccess" : "Быстрый Доступ",
+  "drawerQuickAccessShow" : "Посмотреть Аналитику",
+  "drawerQuickAccessOwnHouses" : "Собственные  Дома",
+  "drawerQuickAccessVacantHouses" : "Вакантные Дома"
+}

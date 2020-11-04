@@ -1,15 +1,15 @@
-import * as ManagementService from '../../config/ManagementService';
+import * as QuickAccess from '../../config/QuickAccess';
 
 export const initialState = {
-  services: []
+  houses: []
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ManagementService.GET_MANAGEMENT_SERVICES:
+    case QuickAccess.GET_HOUSES:
       return {
         ...state,
-        services: action.payload
+        houses: action.payload
       };
     default:
       return state;
