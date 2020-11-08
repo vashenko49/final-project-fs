@@ -11,48 +11,77 @@ import GardenWorkIcon from '../CustomIcon/GardenWorkIcon';
 import WindowIcon from '../CustomIcon/WindowIcon';
 import HouseIcon from '@material-ui/icons/House';
 import { useTranslation } from 'react-i18next';
-import ManagementServiceSelector from '../../redux/selector/ManagementService';
+import ManagementServiceSelector from '../../redux/selector/ManagementServiceSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getManagementServices,
-  createManagementServices
+  getManagementServiceTypes,
+  createManagementService
 } from '../../redux/action/ManagementService';
+import moment from 'moment';
 
 const ManagementService = () => {
-  const [selectService, setSelectService] = useState({});
+  const [selectServiceType, setSelectServiceType] = useState({});
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
-  const iconServices = {
-    sink: <SinkIcon />,
-    electricity: <ElectricityIcon />,
-    garden: <GardenIcon />,
-    lock: <LockIcon />,
-    'air-conditioner': <AirConditioner />,
-    temperature: <TemperatureIcon />,
-    'garden-work': <GardenWorkIcon />,
-    window: <WindowIcon />,
-    other: <HouseIcon fontSize="large" htmlColor="#fff" />
+  const iconServiceTypes = {
+    sink: {
+      icon: <SinkIcon />,
+      iconColor: '#F88B38'
+    },
+    electricity: {
+      icon: <ElectricityIcon />,
+      iconColor: '#4AD584'
+    },
+    garden: {
+      icon: <GardenIcon />,
+      iconColor: '#00D0FF'
+    },
+    lock: {
+      icon: <LockIcon />,
+      iconColor: '#F88B38'
+    },
+    'air-conditioner': {
+      icon: <AirConditioner />,
+      iconColor: '#4AD584'
+    },
+    temperature: {
+      icon: <TemperatureIcon />,
+      iconColor: '#00D0FF'
+    },
+    'garden-work': {
+      icon: <GardenWorkIcon />,
+      iconColor: '#F88B38'
+    },
+    window: {
+      icon: <WindowIcon />,
+      iconColor: '#4AD584'
+    },
+    other: {
+      icon: <HouseIcon fontSize="large" htmlColor="#fff" />,
+      iconColor: '#00D0FF'
+    }
   };
 
-  const services = useSelector(ManagementServiceSelector.getServices);
+  const serviceTypes = useSelector(ManagementServiceSelector.getServiceTypes);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getManagementServices());
+    dispatch(getManagementServiceTypes());
   }, [dispatch]);
 
   const { t } = useTranslation();
 
-  const onCLickSelectService = type => {
-    const chooseServiceForCreate = services
-      .filter(el => el.type === type)
+  const onCLickSelectServiceType = idTypeService => {
+    const chooseServiceTypeForCreate = serviceTypes.content
+      .filter(el => el.id === idTypeService)
       .map(el => ({
-        iconTitle: t(el.title),
-        iconBackgroundColor: el.startIconColor,
-        icon: el.startIcon
+        idTypeService: el.id,
+        iconTitle: t(el.name),
+        iconBackgroundColor: iconServiceTypes[el.type].iconColor,
+        icon: iconServiceTypes[el.type].icon
       }))[0];
 
-    setSelectService(chooseServiceForCreate);
+    setSelectServiceType(chooseServiceTypeForCreate);
     setIsOpenModalCreate(true);
   };
 
@@ -61,25 +90,35 @@ const ManagementService = () => {
   };
 
   const sendRequest = ({ house, comment, date }) => {
-    dispatch(createManagementServices({ house, comment, date }));
+    dispatch(
+      createManagementService({
+        houseId: house,
+        typeId: selectServiceType.idTypeService,
+        description: comment,
+        deadline: moment(date).format('YYYY-MM-DD HH:MM:SS')
+      })
+    );
   };
 
   return (
     <>
       <ManagementServiceList
-        services={services.map(el => ({
-          ...el,
-          title: t(el.title),
-          startIcon: iconServices[el.type]
-        }))}
-        onClick={onCLickSelectService}
+        services={serviceTypes.content
+          .filter(elf => iconServiceTypes.hasOwnProperty(elf.type))
+          .map(el => ({
+            id: el.id,
+            title: t(el.name),
+            startIcon: iconServiceTypes[el.type].icon,
+            startIconColor: iconServiceTypes[el.type].iconColor
+          }))}
+        onClick={onCLickSelectServiceType}
       />
       {isOpenModalCreate && (
         <ManagementServiceCreate
           isOpen={isOpenModalCreate}
           close={handleOpenModal}
           send={sendRequest}
-          {...selectService}
+          {...selectServiceType}
         />
       )}
     </>

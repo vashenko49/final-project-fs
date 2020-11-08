@@ -1,7 +1,8 @@
-package com.marksem.crm.dto.response;
+package com.marksem.crm.dto.response.task;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.marksem.crm.entity.enums.TaskType;
+import com.marksem.crm.dto.response.BaseDtoResponse;
+import com.marksem.crm.dto.response.HouseDtoResponse;
 import lombok.*;
 
 import java.util.Date;
@@ -13,8 +14,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class TaskDtoResponse extends BaseDtoResponse {
     private String description;
-    private TaskType type;
+    private TaskTypeDtoResponse taskType;
     private Boolean status;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
     private Date deadline;
+    private HouseDtoResponse house;
 }

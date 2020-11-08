@@ -2,16 +2,16 @@ import * as ManagementService from '../config/ManagementService';
 import * as SYSTEM from '../config/System';
 import ManagementServiceAPI from '../../services/ManagementServiceAPI';
 
-export function getManagementServices() {
+export function getManagementServiceTypes() {
   return dispatch => {
     dispatch({
       type: SYSTEM.START_LOAD
     });
 
-    ManagementServiceAPI.getServices()
+    ManagementServiceAPI.getServiceTypes()
       .then(res => {
         dispatch({
-          type: ManagementService.GET_MANAGEMENT_SERVICES,
+          type: ManagementService.GET_MANAGEMENT_SERVICE_TYPES,
           payload: res.data
         });
       })
@@ -24,13 +24,13 @@ export function getManagementServices() {
   };
 }
 
-export function createManagementServices(data) {
+export function createManagementService(data) {
   return dispatch => {
     dispatch({
       type: SYSTEM.START_LOAD
     });
 
-    ManagementServiceAPI.createServices(data)
+    ManagementServiceAPI.createService(data)
       .then(res => res)
       .catch(err => err)
       .finally(() => {

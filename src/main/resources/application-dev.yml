@@ -22,5 +22,5 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: password
-#    data: classpath:data.sql
+    data: classpath:sql/data.sql
     initialization-mode: always

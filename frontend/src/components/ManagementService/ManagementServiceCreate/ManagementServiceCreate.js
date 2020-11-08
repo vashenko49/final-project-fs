@@ -217,6 +217,7 @@ const useStyles = makeStyles(() => ({
  * @param send PropTypes.func.isRequired input 1 arg - obj is all filled fields {date, house, comment}
  * @param isOpen PropTypes.bool.isRequired
  * @param close PropTypes.func.isRequired
+ * @param idTypeService
  * @param other input other param for spread
  */
 const ManagementServiceCreate = ({
@@ -226,6 +227,7 @@ const ManagementServiceCreate = ({
   send,
   isOpen,
   close,
+  idTypeService,
   ...other
 }) => {
   const [errorComment, setErrorComment] = useState(false);
@@ -248,7 +250,8 @@ const ManagementServiceCreate = ({
       send({
         date,
         house,
-        comment
+        comment,
+        idTypeService
       });
     }
   };
@@ -353,6 +356,7 @@ const ManagementServiceCreate = ({
 ManagementServiceCreate.propTypes = {
   iconBackgroundColor: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  idTypeService: PropTypes.number.isRequired,
   icon: PropTypes.element.isRequired,
   iconTitle: PropTypes.string.isRequired,
   close: PropTypes.func.isRequired,

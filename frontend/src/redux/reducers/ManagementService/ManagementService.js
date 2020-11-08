@@ -1,15 +1,17 @@
 import * as ManagementService from '../../config/ManagementService';
 
 export const initialState = {
-  services: []
+  serviceTypes: {
+    content: []
+  }
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ManagementService.GET_MANAGEMENT_SERVICES:
+    case ManagementService.GET_MANAGEMENT_SERVICE_TYPES:
       return {
         ...state,
-        services: action.payload
+        serviceTypes: action.payload
       };
     default:
       return state;

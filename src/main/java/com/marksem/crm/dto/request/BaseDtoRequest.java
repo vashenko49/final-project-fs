@@ -17,7 +17,4 @@ public class BaseDtoRequest implements Serializable {
     @Null(groups = {New.class})
     @NotNull(groups = {Update.class})
     private Long id;
-    @Null(groups = {New.class})
-    @NotNull(groups = {Update.class})
-    private int version;
 }

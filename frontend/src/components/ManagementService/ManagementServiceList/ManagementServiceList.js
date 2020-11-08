@@ -30,11 +30,11 @@ const ManagementServiceList = ({ services, onClick }) => {
       <div className={classes.listItem}>
         {services.map(el => (
           <ButtonPreview
-            key={el.type}
+            key={el.id}
             startIcon={el.startIcon}
             startIconColor={el.startIconColor}
             title={el.title}
-            onClick={() => onClick(el.type)}
+            onClick={() => onClick(el.id)}
           />
         ))}
       </div>
@@ -45,7 +45,7 @@ const ManagementServiceList = ({ services, onClick }) => {
 ManagementServiceList.propTypes = {
   services: PropTypes.arrayOf(
     PropTypes.exact({
-      type: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       startIcon: PropTypes.element.isRequired,
       startIconColor: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
