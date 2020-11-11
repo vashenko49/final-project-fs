@@ -35,10 +35,10 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0px 2px 2px #00000029',
     borderRadius: '20px'
   },
-  div: {
+  photoContainer: {
     margin: '10px 15px 0 0'
   },
-  img: {
+  photo: {
     width: 135,
     height: 135,
     borderRadius: '20px',
@@ -106,8 +106,8 @@ export default function News() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <div className={classes.div}>
-            <img className={classes.img} src={news.imgFirst} alt="#" />
+          <div className={classes.photoContainer}>
+            <img className={classes.photo} src={news.imgFirst} alt="#" />
           </div>
           <Typography className={classes.detailsHeader}>
             {news.headerFirst}
