@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -7,6 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import Button from '../generic/Button';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import NewsSelector from '../../redux/selector/NewsSelector';
+import { getNews } from '../../redux/action/News';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -77,9 +81,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleAccordion() {
+export default function News() {
+  const news = useSelector(NewsSelector.getNews);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getNews());
+  }, [dispatch]);
   const classes = useStyles();
-
+  const { t } = useTranslation();
   return (
     <div className={classes.root}>
       <Accordion className={classes.border} square={true}>
@@ -90,7 +99,7 @@ export default function SimpleAccordion() {
           className={classes.header}
         >
           <Typography className={classes.heading}>
-            Новини
+            {t('news')}
             <div className={classes.icon}>
               <EventNoteIcon />
             </div>
@@ -98,22 +107,15 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <div className={classes.div}>
-            <img
-              className={classes.img}
-              src="https://upload.wikimedia.org/wikipedia/commons/8/89/%D0%92%D1%80%D0%B0%D0%B6%D0%B0%D1%8E%D1%87%D0%B8%D0%B9_%D0%BA%D1%80%D0%B0%D1%94%D0%B2%D0%B8%D0%B4.jpg"
-              alt=""
-            />
+            <img className={classes.img} src={news.imgFirst} alt="#" />
           </div>
           <Typography className={classes.detailsHeader}>
-            Доступне місце розташування!
-            <div className={classes.detailsContent}>
-              Вітаємо клієнтів MARKSEM! MARKSEM відкриває нове місце на березі мальовничого озера в
-              Карпатах. У новому місці також з’являться нові розваги та послуги для вашого.
-            </div>
+            {news.headerFirst}
+            <div className={classes.detailsContent}>{news.contentFirst}</div>
             <div className={classes.detailsDate}>
-              25.07.2020
+              {news.dateFirst}
               <div className={classes.detailsBtn}>
-                <Button background={'#254A93'} color={'#FFFFFF'} content={'Детально'} />
+                <Button background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
               </div>
             </div>
           </Typography>
@@ -123,23 +125,15 @@ export default function SimpleAccordion() {
         </AccordionDetails>
         <AccordionDetails>
           <div className={classes.div}>
-            <img
-              className={classes.img}
-              src="https://delo.ua/files/news/images/3592/25/picture2_dlitelnye-rukopoz_359225_p0.jpg"
-              alt=""
-            />
+            <img className={classes.img} src={news.imgSecond} alt="#" />
           </div>
           <Typography className={classes.detailsHeader}>
-            Нові умови співпраці!
-            <div className={classes.detailsContent}>
-              MARKSEM запускає новий проект співпраці. Вкладіть гроші в продукт MARKSEM і отримайте
-              план розстрочки вже сьогодні. З отриманого доходу оплатіть покупку! Перейдіть за
-              посиланням та дізнайтеся більше
-            </div>
+            {news.headerSecond}
+            <div className={classes.detailsContent}>{news.contentSecond}</div>
             <div className={classes.detailsDate}>
-              25.07.2020
+              {news.dateSecond}
               <div className={classes.detailsBtn}>
-                <Button background={'#254A93'} color={'#FFFFFF'} content={'Детально'} />
+                <Button background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
               </div>
             </div>
           </Typography>

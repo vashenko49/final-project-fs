@@ -36,5 +36,7 @@
   "drawerQuickAccess" : "Quick Access",
   "drawerQuickAccessShow" : "View Analytics",
   "drawerQuickAccessOwnHouses" : "Own Houses",
-  "drawerQuickAccessVacantHouses" : "Vacant Houses"
+  "drawerQuickAccessVacantHouses" : "Vacant Houses",
+  "news" : "News",
+  "btnDetails" : "Details"
 }
