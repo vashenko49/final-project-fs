@@ -7,6 +7,7 @@ import CurrentUser from './CurrentUser/CurrentUser';
 import DrawerManager from './DrawerManager/DrawerManager';
 import ManagementService from './ManagementService/ManagementService';
 import QuickAccess from './QuickAccess/QuickAccess';
+import News from './News/News';
 
 export default combineReducers({
   System,
@@ -14,5 +15,6 @@ export default combineReducers({
   CurrentUser,
   DrawerManager,
   ManagementService,
-  QuickAccess
+  QuickAccess,
+  News
 });

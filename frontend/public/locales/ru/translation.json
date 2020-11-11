@@ -36,5 +36,7 @@
   "drawerQuickAccess" : "Быстрый Доступ",
   "drawerQuickAccessShow" : "Посмотреть Аналитику",
   "drawerQuickAccessOwnHouses" : "Собственные  Дома",
-  "drawerQuickAccessVacantHouses" : "Вакантные Дома"
+  "drawerQuickAccessVacantHouses" : "Вакантные Дома",
+  "news" : "Новости",
+  "btnDetails" : "Подробно"
 }

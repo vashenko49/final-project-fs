@@ -18,6 +18,7 @@ import DrawerManager from './Drawer/DrawerManager/DrawerManager';
 import { getManagerInfo } from '../../redux/action/DrawerManager';
 import ManagementService from '../ManagementService/ManagementService';
 import DrawerQuickAccess from './Drawer/DrawerQuickAccess/DrawerQuickAccess';
+import News from '../News/News';
 
 const drawerWidth = 450;
 
@@ -178,6 +179,7 @@ const Dashboard = props => {
         >
           {/* PUT MAIN CONTENT HERE */}
           <ManagementService />
+          <News />
         </main>
         {drawer}
       </div>
