@@ -124,8 +124,8 @@ export default function News() {
           <div className={classes.line}></div>
         </AccordionDetails>
         <AccordionDetails>
-          <div className={classes.div}>
-            <img className={classes.img} src={news.imgSecond} alt="#" />
+          <div className={classes.photoContainer}>
+            <img className={classes.photo} src={news.imgSecond} alt="#" />
           </div>
           <Typography className={classes.detailsHeader}>
             {news.headerSecond}
