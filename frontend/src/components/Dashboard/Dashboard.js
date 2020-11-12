@@ -14,7 +14,11 @@ import Header from './Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import DrawerHeader from './Drawer/DrawerHeader/Header';
 import { getUserInfo } from '../../redux/action/CurrentUser';
-import ManagementServiceList from '../ManagementServiceList/ManagementServiceList';
+import DrawerManager from './Drawer/DrawerManager/DrawerManager';
+import { getManagerInfo } from '../../redux/action/DrawerManager';
+import ManagementService from '../ManagementService/ManagementService';
+import DrawerQuickAccess from './Drawer/DrawerQuickAccess/DrawerQuickAccess';
+import News from '../News/News';
 
 const drawerWidth = 450;
 
@@ -130,7 +134,7 @@ const Dashboard = props => {
   const headerOpened = useSelector(state => state.Header.headerOpen);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUserInfo());
+    dispatch(getUserInfo(), getManagerInfo());
   });
 
   const drawer = (
@@ -146,6 +150,8 @@ const Dashboard = props => {
         <DrawerHeader />
         {/* Контент под хедером */}
       </div>
+      <DrawerQuickAccess />
+      <DrawerManager />
     </Drawer>
   );
 
@@ -172,7 +178,8 @@ const Dashboard = props => {
           )}
         >
           {/* PUT MAIN CONTENT HERE */}
-          <ManagementServiceList />
+          <ManagementService />
+          <News />
         </main>
         {drawer}
       </div>

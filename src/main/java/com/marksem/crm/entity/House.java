@@ -1,5 +1,6 @@
 package com.marksem.crm.entity;
 
+import com.marksem.crm.entity.task.Task;
 import com.marksem.crm.entity.transaction.TransactionGroup;
 import lombok.AllArgsConstructor;
 import lombok.Data;
