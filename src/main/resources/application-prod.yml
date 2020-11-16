@@ -1,3 +1,6 @@
+jwt:
+  secret: ${JWT_SECRET:?SET_ENVIOMENT_JWT_SECRET_IN_SYSTEM}
+  expiration-day: ${JWT_EXPIRATION_DAY:?SET_ENVIOMENT_JWT_EXPIRATION_DAY_IN_SYSTEM}
 spring:
   profiles: prod
   datasource:
