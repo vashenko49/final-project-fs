@@ -11,7 +11,6 @@ export async function FetchToServer(url, method, body) {
           Authorisation: 'Bearer' + sessionStorage.getItem('token')
         }
       });
-      break;
 
     case 'POST':
       return await axios.post(`${baseUrl}/${url}`, body, {
@@ -19,7 +18,6 @@ export async function FetchToServer(url, method, body) {
           Authorisation: 'Bearer' + sessionStorage.getItem('token')
         }
       });
-      break;
 
     case 'PUT':
       return await axios.put(`${baseUrl}/${url}`, body, {
@@ -27,6 +25,5 @@ export async function FetchToServer(url, method, body) {
           Authorisation: 'Bearer' + sessionStorage.getItem('token')
         }
       });
-      break;
   }
 }
