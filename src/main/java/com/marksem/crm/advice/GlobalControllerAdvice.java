@@ -18,19 +18,19 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<Object> accessDeniedException(Exception ex) {
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(new CustomErrorResponse((ex.getMessage())), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage()), HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(JwtAuthenticationException.class)
     public ResponseEntity<Object> jwtAuthenticationException(Exception ex) {
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(new CustomErrorResponse((ex.getMessage())), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage()), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Object> badCredentialsException(Exception ex) {
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage()), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(new CustomErrorResponse("Bad credentials"), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(InsufficientAuthenticationException.class)
@@ -42,6 +42,6 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> exception(Exception ex) {
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(new CustomErrorResponse(("Something Went Wrong")), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(new CustomErrorResponse("Something Went Wrong"), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

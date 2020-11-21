@@ -1,6 +1,7 @@
 jwt:
   secret: marksem-default-secret-for-test
-  expiration-day: 15
+  expiration-access-minutes: 30
+  expiration-refresh-minutes: 10080
 spring:
   jackson:
     mapper:

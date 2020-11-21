@@ -1,5 +1,6 @@
 package com.marksem.crm.security.jwt;
 
+import com.marksem.crm.entity.enums.TypeToken;
 import com.marksem.crm.exceptions.CustomAuthenticationEntryPoint;
 import com.marksem.crm.exceptions.auth.JwtAuthenticationException;
 import org.springframework.security.core.Authentication;
@@ -31,7 +32,7 @@ public class JwtFilter extends GenericFilterBean {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         String token = jwtProvider.resolveToken((HttpServletRequest) servletRequest);
         try {
-            if (token != null && jwtProvider.validateToken(token)) {
+            if (token != null && jwtProvider.validateToken(token, TypeToken.ACCESS)) {
                 Authentication authentication = jwtProvider.getAuthentication(token);
                 if (authentication != null) {
                     SecurityContextHolder.getContext().setAuthentication(authentication);

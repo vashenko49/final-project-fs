@@ -32,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors()
                 .and()
+                .headers().frameOptions().sameOrigin()
+                .and()
                 .httpBasic().disable()
                 .csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint)
@@ -40,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers("/console/**").permitAll()
                 .antMatchers("/api/v1/auth/login").permitAll()
+                .antMatchers("/api/v1/auth/refresh").permitAll()
                 .antMatchers("/api/v1/admin/**").hasRole(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and()
