@@ -38,5 +38,19 @@
   "drawerQuickAccessOwnHouses" : "Собственные  Дома",
   "drawerQuickAccessVacantHouses" : "Вакантные Дома",
   "news" : "Новости",
-  "btnDetails" : "Подробно"
+  "btnDetails" : "Подробно",
+  "createUserTitle": "Создание пользователя",
+  "createUserSelectManager": "Менеджер",
+  "createUserSelectClient": "Клиент",
+  "createUserChangePhoto": "Изменить фото",
+  "createUserName": "Имя",
+  "createUserEmail": "Email адрес",
+  "createUserPassword": "Пароль",
+  "createUserRepeatPassword": "Повторить пароль",
+  "createUserSend": "Создать",
+  "validationRequired": "обязательное заполнение",
+  "validationConfirmPassword": "не совпадает пароль",
+  "validationMin6Char": "минимум 6 знаков",
+  "validationEmail": "электронная почта недействительна",
+  "validationFormatFile": "допустимый формат jpg/jpeg/image"
 }

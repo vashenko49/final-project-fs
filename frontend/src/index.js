@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import Routing from './components/Routing/Routing';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { blueGrey } from '@material-ui/core/colors';
 import { Provider } from 'react-redux';
 import configureStore from './redux/store/store';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,7 +11,9 @@ import Loader from './components/Loader/Loader';
 
 const outerTheme = createMuiTheme({
   palette: {
-    secondary: blueGrey,
+    secondary: {
+      main: '#6E7375'
+    },
     primary: {
       main: '#254A93'
     }

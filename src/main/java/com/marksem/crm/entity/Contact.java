@@ -19,6 +19,6 @@ public class Contact extends BaseEntity  {
     private TypeContact type;
     private String value;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false, updatable = false)
-    private Customer customer;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, updatable = false)
+    private User user;
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDtoResponse extends BaseDtoResponse {
+public class UserDtoResponse extends BaseDtoResponse {
     private String name;
     private String password;
     private String email;

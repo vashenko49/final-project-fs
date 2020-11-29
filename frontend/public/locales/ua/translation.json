@@ -38,5 +38,19 @@
   "drawerQuickAccessOwnHouses" : "Власні Будинки",
   "drawerQuickAccessVacantHouses" : "Вакантні Будинки",
   "news" : "Новини",
-  "btnDetails" : "Детально"
+  "btnDetails" : "Детально",
+  "createUserTitle": "Створення користувача",
+  "createUserSelectManager": "Менеджер",
+  "createUserSelectClient": "Клієнт",
+  "createUserChangePhoto": "Змінити фото",
+  "createUserName": "Повне ім'я",
+  "createUserEmail": "Email адреса",
+  "createUserPassword": "Пароль",
+  "createUserRepeatPassword": "Повторити пароль",
+  "createUserSend": "Створити",
+  "validationRequired": "обов'язкове заповнення",
+  "validationConfirmPassword": "не збігається пароль",
+  "validationMin6Char": "не менше 6 символів",
+  "validationEmail": "електронна адреса недійсна",
+  "validationFormatFile": "допустимий формат jpg/jpeg/image"
 }

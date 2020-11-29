@@ -1,10 +1,9 @@
 package com.marksem.crm.security;
 
-import com.marksem.crm.entity.Customer;
+import com.marksem.crm.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -26,14 +25,14 @@ public class CustomUserDetails implements UserDetails {
         this.isActive = isActive;
     }
 
-    public static UserDetails fromCustomerToCustomUserDetails(Customer customer) {
-        return new User(customer.getEmail(),
-                customer.getPassword(),
+    public static UserDetails fromUserToCustomUserDetails(User user) {
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+                user.getPassword(),
                 true,
                 true,
                 true,
                 true,
-                Collections.singletonList(new SimpleGrantedAuthority(customer.getRole().name())));
+                Collections.singletonList(new SimpleGrantedAuthority(user.getRole().name())));
     }
 
     @Override

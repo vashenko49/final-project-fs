@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDtoRequest extends BaseDtoRequest {
+public class UserDtoRequest extends BaseDtoRequest {
     @NotBlank(
             message = "name is require",
             groups = {New.class, Update.class}

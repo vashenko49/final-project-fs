@@ -16,8 +16,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class RefreshToken extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false, unique = true)
-    private Customer customer;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
+    private User user;
 
     @Column(name = "token", nullable = false, unique = true)
     private String token;

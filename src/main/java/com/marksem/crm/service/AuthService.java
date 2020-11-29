@@ -7,7 +7,8 @@ import com.marksem.crm.exceptions.auth.JwtAuthenticationException;
 import com.marksem.crm.repos.RefreshTokenRepository;
 import com.marksem.crm.security.jwt.JwtProvider;
 import com.marksem.crm.dto.request.AuthDtoRequest;
-import com.marksem.crm.entity.Customer;
+import com.marksem.crm.entity.User;
+import com.marksem.crm.service.user.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,13 +22,13 @@ import java.util.Date;
 
 @Service
 public class AuthService {
-    final private CustomerService customerService;
+    final private UserService userService;
     final private JwtProvider jwtProvider;
     final private AuthenticationManager authenticationManager;
     final private RefreshTokenRepository refreshTokenRepository;
 
-    public AuthService(CustomerService customerService, JwtProvider jwtProvider, AuthenticationManager authenticationManager, RefreshTokenRepository refreshTokenRepository) {
-        this.customerService = customerService;
+    public AuthService(UserService userService, JwtProvider jwtProvider, AuthenticationManager authenticationManager, RefreshTokenRepository refreshTokenRepository) {
+        this.userService = userService;
         this.jwtProvider = jwtProvider;
         this.authenticationManager = authenticationManager;
         this.refreshTokenRepository = refreshTokenRepository;
@@ -43,11 +44,11 @@ public class AuthService {
 
     public AuthDtoResponse login(AuthDtoRequest auth) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
-        Customer customer = customerService.findByEmail(auth.getEmail());
-        if (customer == null) throw new UsernameNotFoundException("User doesn't exists");
-        AuthDtoResponse fullTokens = createFullTokens(customer.getEmail());
-        RefreshToken refreshTokenEntity = new RefreshToken(customer, fullTokens.getRefreshToken(), fullTokens.getExpiryRefreshToken());
-        refreshTokenRepository.findByCustomerId(customer.getId())
+        User user = userService.findByEmail(auth.getEmail());
+        if (user == null) throw new UsernameNotFoundException("User doesn't exists");
+        AuthDtoResponse fullTokens = createFullTokens(user.getEmail());
+        RefreshToken refreshTokenEntity = new RefreshToken(user, fullTokens.getRefreshToken(), fullTokens.getExpiryRefreshToken());
+        refreshTokenRepository.findByUserId(user.getId())
                 .ifPresentOrElse(
                         token -> {
                             token.setToken(refreshTokenEntity.getToken());
@@ -62,12 +63,12 @@ public class AuthService {
         String token = jwtProvider.resolveToken(request);
         jwtProvider.validateToken(token, TypeToken.REFRESH);
         String email = jwtProvider.getEmailFromToken(token);
-        Customer customer = customerService.findByEmail(email);
+        User user = userService.findByEmail(email);
         RefreshToken refreshTokenEntity = refreshTokenRepository.findByToken(token)
                 .orElseThrow(() -> new JwtAuthenticationException("Invalid jwt"));
-        if (!refreshTokenEntity.getCustomer().getId().equals(customer.getId()))
+        if (!refreshTokenEntity.getUser().getId().equals(user.getId()))
             throw new UsernameNotFoundException("User doesn't exists");
-        AuthDtoResponse fullTokens = createFullTokens(customer.getEmail());
+        AuthDtoResponse fullTokens = createFullTokens(user.getEmail());
         refreshTokenEntity.setExpiry(fullTokens.getExpiryRefreshToken());
         refreshTokenEntity.setToken(fullTokens.getRefreshToken());
         refreshTokenRepository.save(refreshTokenEntity);
@@ -79,8 +80,8 @@ public class AuthService {
         SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
         securityContextLogoutHandler.logout(request, response, null);
         if (email != null) {
-            Customer customer = customerService.findByEmail(email);
-            refreshTokenRepository.findByCustomerId(customer.getId())
+            User user = userService.findByEmail(email);
+            refreshTokenRepository.findByUserId(user.getId())
                     .ifPresent(refreshTokenRepository::delete);
         }
     }

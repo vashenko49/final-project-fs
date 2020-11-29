@@ -13,11 +13,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @Entity
-@Table(name = "customers")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer extends BaseEntity {
+public class User extends BaseEntity {
     private String name;
     private String password;
     private String email;
@@ -33,9 +33,9 @@ public class Customer extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<House> houses = new ArrayList<>();
 }

@@ -1,12 +1,5 @@
 import axios from 'axios';
 
-// const withMock = mockData =>
-//   new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       resolve(mockData || {});
-//     }, 3000);
-//   });
-
 const apiVersion = 'v1';
 const baseUrl = `/api/${apiVersion}`;
 

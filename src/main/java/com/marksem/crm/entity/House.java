@@ -22,8 +22,8 @@ public class House extends BaseEntity  {
     private String description;
     private Double area;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false, updatable = false)
-    private Customer customer;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, updatable = false)
+    private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id", referencedColumnName = "id")
