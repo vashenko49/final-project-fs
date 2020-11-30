@@ -1,7 +1,8 @@
 package com.marksem.crm.entity.enums;
 
 public enum Role {
-    USER,
+    CLIENT,
     MANAGER,
     ADMIN
 }
+

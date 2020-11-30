@@ -1,6 +1,8 @@
 package com.marksem.crm.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.marksem.crm.entity.enums.Currency;
 import com.marksem.crm.entity.enums.Language;
 import com.marksem.crm.entity.enums.Role;
@@ -17,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserDtoResponse extends BaseDtoResponse {
     private String name;
+    @JsonIgnore
     private String password;
     private String email;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")

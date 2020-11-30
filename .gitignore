@@ -40,3 +40,7 @@ frontend/.stylelintcache
 *.lock
 /node_modules
 /package-lock.json
+
+
+# env
+src/main/resources/application-dev.yml

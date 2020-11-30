@@ -1,5 +1,6 @@
 package com.marksem.crm.dto.request.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.marksem.crm.dto.request.BaseDtoRequest;
 import com.marksem.crm.dto.request.groups.New;
 import com.marksem.crm.dto.request.groups.Update;

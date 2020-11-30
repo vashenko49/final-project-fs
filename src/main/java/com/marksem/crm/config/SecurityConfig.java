@@ -42,7 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers("/",
+                        "/error",
+                        "/favicon.ico",
+                        "/**/*.png",
+                        "/**/*.gif",
+                        "/**/*.svg",
+                        "/**/*.jpg",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js").permitAll()
                 .antMatchers("/console/**").permitAll()
+                .antMatchers("/index/**").permitAll()
                 .antMatchers("/api/v1/auth/login").permitAll()
                 .antMatchers("/api/v1/auth/refresh").permitAll()
                 .antMatchers("/api/v1/admin/**").hasRole(Role.ADMIN.name())

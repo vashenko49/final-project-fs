@@ -2,8 +2,10 @@ package com.marksem.crm.controller.user;
 
 import com.marksem.crm.dto.request.groups.New;
 import com.marksem.crm.dto.request.user.CreateUserDtoRequest;
+import com.marksem.crm.dto.response.UserDtoResponse;
 import com.marksem.crm.facade.user.UserFacade;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +19,7 @@ public class UserController {
     }
 
     @PostMapping(path = "create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void createUser(@Validated(New.class) @ModelAttribute CreateUserDtoRequest user) {
-        System.out.println(user);
-        userFacade.create(user);
+    public ResponseEntity<UserDtoResponse> createUser(@Validated(New.class) @ModelAttribute CreateUserDtoRequest user) {
+        return ResponseEntity.ok(userFacade.create(user));
     }
 }
