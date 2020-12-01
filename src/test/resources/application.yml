@@ -1,6 +1,21 @@
 server:
   port: 9000
 
+app:
+  mail:
+    templatePath: /email-template/
+
 spring:
   profiles:
     active: dev
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

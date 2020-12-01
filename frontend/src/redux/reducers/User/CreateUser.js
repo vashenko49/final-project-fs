@@ -5,7 +5,7 @@ export const initialState = {
     message: null
 };
 
-export default (state = initialState, action) => {
+export default (action, state = initialState) => {
     switch (action.type) {
         case CreateUser.RESPONSE_CREATE_USER:
             return {

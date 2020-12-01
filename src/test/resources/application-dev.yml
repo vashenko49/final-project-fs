@@ -1,19 +1,23 @@
+cloudinary:
+  cloud_name:
+  api_key:
+  api_secret:
+jwt:
+  secret:
+  expiration-access-minutes: 30
+  expiration-refresh-minutes: 10080
 spring:
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
   profiles: dev
-  datasource:
-    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        use_sql_comments: true
-        format_sql: true
+      ddl-auto: create
+  devtools:
+    restart:
+      enabled: true
   h2:
     console:
       enabled: true
@@ -21,3 +25,16 @@ spring:
       settings:
         trace: true
         web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username:
+    password:
+    data: classpath:sql/data.sql
+    initialization-mode: always
+  mail:
+    username:
+    password:
+    properties:
+      mail:
+        debug: true
