@@ -6,7 +6,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EventNoteIcon from '@material-ui/icons/EventNote';
-import Button from '../generic/Button';
+import Index from '../generic/Button';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import NewsSelector from '../../redux/selector/NewsSelector';
@@ -81,64 +81,72 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function News() {
-  const news = useSelector(NewsSelector.getNews);
+
+
+const News = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
+  const news = useSelector(NewsSelector.getNews);
+
   useEffect(() => {
     dispatch(getNews());
   }, [dispatch]);
-  const classes = useStyles();
+
+
   const { t } = useTranslation();
+
   return (
-    <div className={classes.root}>
-      <Accordion className={classes.border} square={true}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.iconArrow} />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-          className={classes.header}
-        >
-          <Typography className={classes.heading}>
-            {t('news')}
-            <div className={classes.icon}>
-              <EventNoteIcon />
-            </div>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className={classes.photoContainer}>
-            <img className={classes.photo} src={news.imgFirst} alt="#" />
-          </div>
-          <Typography className={classes.detailsHeader}>
-            {news.headerFirst}
-            <div className={classes.detailsContent}>{news.contentFirst}</div>
-            <div className={classes.detailsDate}>
-              {news.dateFirst}
-              <div className={classes.detailsBtn}>
-                <Button background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
+      <div className={classes.root}>
+        <Accordion className={classes.border} square={true}>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon className={classes.iconArrow} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              className={classes.header}
+          >
+            <Typography className={classes.heading}>
+              {t('news')}
+              <div className={classes.icon}>
+                <EventNoteIcon />
               </div>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className={classes.photoContainer}>
+              <img className={classes.photo} src={news.imgFirst} alt="#" />
             </div>
-          </Typography>
-        </AccordionDetails>
-        <AccordionDetails>
-          <div className={classes.line}></div>
-        </AccordionDetails>
-        <AccordionDetails>
-          <div className={classes.photoContainer}>
-            <img className={classes.photo} src={news.imgSecond} alt="#" />
-          </div>
-          <Typography className={classes.detailsHeader}>
-            {news.headerSecond}
-            <div className={classes.detailsContent}>{news.contentSecond}</div>
-            <div className={classes.detailsDate}>
-              {news.dateSecond}
-              <div className={classes.detailsBtn}>
-                <Button background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
+            <Typography className={classes.detailsHeader}>
+              {news.headerFirst}
+              <div className={classes.detailsContent}>{news.contentFirst}</div>
+              <div className={classes.detailsDate}>
+                {news.dateFirst}
+                <div className={classes.detailsBtn}>
+                  <Index background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
+                </div>
               </div>
+            </Typography>
+          </AccordionDetails>
+          <AccordionDetails>
+            <div className={classes.line}></div>
+          </AccordionDetails>
+          <AccordionDetails>
+            <div className={classes.photoContainer}>
+              <img className={classes.photo} src={news.imgSecond} alt="#" />
             </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+            <Typography className={classes.detailsHeader}>
+              {news.headerSecond}
+              <div className={classes.detailsContent}>{news.contentSecond}</div>
+              <div className={classes.detailsDate}>
+                {news.dateSecond}
+                <div className={classes.detailsBtn}>
+                  <Index background={'#254A93'} color={'#FFFFFF'} content={t('btnDetails')} />
+                </div>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
   );
-}
+};
+
+export default News;

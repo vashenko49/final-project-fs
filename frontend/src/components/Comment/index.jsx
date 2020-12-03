@@ -3,7 +3,7 @@ import Rating from './Rating';
 import { Card } from '@material-ui/core';
 import { styles } from './commentStyles.js';
 
-function Comment({ userName, avatar, firstData, lastData, rating, commentText }) {
+const Comment = ({ userName, avatar, firstData, lastData, rating, commentText }) => {
   return (
     <Card style={styles.card}>
       <header>
@@ -31,6 +31,6 @@ function Comment({ userName, avatar, firstData, lastData, rating, commentText })
       </div>
     </Card>
   );
-}
+};
 
 export default Comment;
