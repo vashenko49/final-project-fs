@@ -2,6 +2,7 @@ package com.marksem.crm.controller;
 
 import com.marksem.crm.dto.request.AuthDtoRequest;
 import com.marksem.crm.dto.response.AuthDtoResponse;
+import com.marksem.crm.dto.response.UserDtoResponse;
 import com.marksem.crm.facade.AuthFacade;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/auth/")
@@ -32,5 +34,10 @@ public class AuthController {
     @GetMapping("refresh")
     public ResponseEntity<AuthDtoResponse> refresh(HttpServletRequest request) {
         return ResponseEntity.ok(authFacade.refresh(request));
+    }
+
+    @GetMapping("profile")
+    public ResponseEntity<UserDtoResponse> profile(Principal principal) {
+        return ResponseEntity.ok(authFacade.profile(principal));
     }
 }

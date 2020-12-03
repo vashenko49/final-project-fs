@@ -17,6 +17,15 @@ const outerTheme = createMuiTheme({
     primary: {
       main: '#254A93'
     }
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#F7FAFF',
+        },
+      },
+    },
   }
 });
 

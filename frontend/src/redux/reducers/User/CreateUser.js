@@ -5,16 +5,15 @@ export const initialState = {
   message: null
 };
 
-export default (action, state = initialState) => {
-  const { type = '' } = action;
-  switch (type) {
-    case CreateUser.RESPONSE_CREATE_USER:
-      return {
-        ...state,
-        success: action.payload.success,
-        message: action.payload.message
-      };
-    default:
-      return state;
-  }
+export default (state = initialState, action) => {
+    switch (action.type) {
+        case CreateUser.RESPONSE_CREATE_USER:
+            return {
+                ...state,
+                success: action.payload.success,
+                message: action.payload.message
+            };
+        default:
+            return state;
+    }
 };

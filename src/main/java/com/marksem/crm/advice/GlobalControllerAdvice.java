@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -39,6 +40,12 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
                 .map(i -> i.getField() + ' ' + i.getDefaultMessage())
                 .collect(Collectors.toList());
         return new ResponseEntity<>(new CustomErrorResponse(msg, allErrors), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InternalAuthenticationServiceException.class)
+    public ResponseEntity<Object> internalAuthenticationServiceException(InternalAuthenticationServiceException ex) {
+        log.error(ex.getMessage(), ex);
+        return new ResponseEntity<>(new CustomErrorResponse("Bad credentials"), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(AccessDeniedException.class)
@@ -80,6 +87,6 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> exception(Exception ex) {
         log.error(ex.getMessage(), ex);
-        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage().length() > 0 ? ex.getMessage():  "Something Went Wrong"), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage().length() > 0 ? ex.getMessage() : "Something Went Wrong"), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
