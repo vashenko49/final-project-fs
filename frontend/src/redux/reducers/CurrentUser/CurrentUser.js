@@ -11,7 +11,8 @@ export const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  const { type = '' } = action;
+  switch (type) {
     case CURRENTUSER.GET_CUSTOMER_INFO:
       return {
         ...state,
