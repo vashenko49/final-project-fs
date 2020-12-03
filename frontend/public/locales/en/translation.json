@@ -57,5 +57,12 @@
   "validationConfirmPassword": "the password does not match",
   "validationMin6Char": "min 6 characters",
   "validationEmail": "email not valid",
-  "validationFormatFile": "valid format jpg/jpeg/image"
+  "validationFormatFile": "valid format jpg/jpeg/image",
+  "signInTitle": "Sign in",
+  "signInEmail": "Email Address",
+  "signInPassword": "Password",
+  "signInRemember": "Remember me",
+  "signInBtn": "Sign In",
+  "signInForgot": "Forgot password?",
+  "signInFail": "Incorrect login or password"
 }

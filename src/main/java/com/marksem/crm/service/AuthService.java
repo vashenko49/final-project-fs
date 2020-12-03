@@ -13,11 +13,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 import java.util.Date;
 
 @Service
@@ -26,12 +28,14 @@ public class AuthService {
     final private JwtProvider jwtProvider;
     final private AuthenticationManager authenticationManager;
     final private RefreshTokenRepository refreshTokenRepository;
+    final private PasswordEncoder passwordEncoder;
 
-    public AuthService(UserService userService, JwtProvider jwtProvider, AuthenticationManager authenticationManager, RefreshTokenRepository refreshTokenRepository) {
+    public AuthService(UserService userService, JwtProvider jwtProvider, AuthenticationManager authenticationManager, RefreshTokenRepository refreshTokenRepository, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.jwtProvider = jwtProvider;
         this.authenticationManager = authenticationManager;
         this.refreshTokenRepository = refreshTokenRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public AuthDtoResponse createFullTokens(String email) {
@@ -44,8 +48,8 @@ public class AuthService {
 
     public AuthDtoResponse login(AuthDtoRequest auth) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(auth.getEmail(), auth.getPassword()));
+
         User user = userService.findByEmail(auth.getEmail());
-        if (user == null) throw new UsernameNotFoundException("User doesn't exists");
         AuthDtoResponse fullTokens = createFullTokens(user.getEmail());
         RefreshToken refreshTokenEntity = new RefreshToken(user, fullTokens.getRefreshToken(), fullTokens.getExpiryRefreshToken());
         refreshTokenRepository.findByUserId(user.getId())
@@ -84,5 +88,9 @@ public class AuthService {
             refreshTokenRepository.findByUserId(user.getId())
                     .ifPresent(refreshTokenRepository::delete);
         }
+    }
+
+    public User profile(Principal principal) {
+        return userService.findByEmail(principal.getName());
     }
 }

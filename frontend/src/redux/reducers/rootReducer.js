@@ -9,6 +9,7 @@ import ManagementService from './ManagementService/ManagementService';
 import QuickAccess from './QuickAccess/QuickAccess';
 import News from './News/News';
 import CreateUser from './User/CreateUser';
+import Auth from "./Auth/Auth";
 
 export default combineReducers({
   System,
@@ -18,5 +19,6 @@ export default combineReducers({
   ManagementService,
   QuickAccess,
   News,
-  CreateUser
+  CreateUser,
+  Auth
 });

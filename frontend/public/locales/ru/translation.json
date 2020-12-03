@@ -57,5 +57,12 @@
   "validationConfirmPassword": "не совпадает пароль",
   "validationMin6Char": "минимум 6 знаков",
   "validationEmail": "электронная почта недействительна",
-  "validationFormatFile": "допустимый формат jpg/jpeg/image"
+  "validationFormatFile": "допустимый формат jpg/jpeg/image",
+  "signInTitle": "Войти",
+  "signInEmail": "Адрес электронной почты",
+  "signInPassword": "Пароль",
+  "signInRemember": "Запомнить меня",
+  "signInBtn": "Войти",
+  "signInForgot": "Забыли пароль?",
+  "signInFail": "Неправильный логин или пароль"
 }
