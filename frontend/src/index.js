@@ -1,13 +1,12 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Routing from './components/Routing/Routing';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import configureStore from './redux/store/store';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import './index.scss';
 import './18next';
-import Loader from './components/Loader/Loader';
+import AppContainer from '@containers/AppContainer';
 
 const outerTheme = createMuiTheme({
   palette: {
@@ -22,23 +21,20 @@ const outerTheme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
-          backgroundColor: '#F7FAFF',
-        },
-      },
-    },
+          backgroundColor: '#F7FAFF'
+        }
+      }
+    }
   }
 });
 
 ReactDOM.render(
-  <Suspense fallback={<></>}>
+  <Provider store={configureStore()}>
     <ThemeProvider theme={outerTheme}>
-      <Provider store={configureStore()}>
-        <BrowserRouter>
-          <Routing />
-          <Loader />
-        </BrowserRouter>
-      </Provider>
+      <Router>
+        <AppContainer />
+      </Router>
     </ThemeProvider>
-  </Suspense>,
+  </Provider>,
   document.getElementById('root')
 );

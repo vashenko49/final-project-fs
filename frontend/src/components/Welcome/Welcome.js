@@ -32,7 +32,7 @@ const Welcome = () => {
     <div className={classes.welcome}>
       {t('welcomeHello')}, {userInfo.userName}!
       <p className={classes.updates}>
-        {t('welcomeUpdates')}: <span className={classes.date}></span>
+        {t('welcomeUpdates')}: <span className={classes.date} />
       </p>
     </div>
   );

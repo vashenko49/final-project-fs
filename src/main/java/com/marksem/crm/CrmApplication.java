@@ -19,8 +19,8 @@ import java.util.Map;
 
 import static org.modelmapper.config.Configuration.AccessLevel.PRIVATE;
 
-@SpringBootApplication
 @EnableJpaAuditing
+@SpringBootApplication
 public class CrmApplication {
     @Value("${cloudinary.cloud_name}")
     private String cloudName;

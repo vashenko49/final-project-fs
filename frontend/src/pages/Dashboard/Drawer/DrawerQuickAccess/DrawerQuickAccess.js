@@ -1,14 +1,14 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useTranslation } from 'react-i18next';
 import React, { useEffect } from 'react';
-import ButtonPreview from '../../../generic/ButtonPreview';
 import HouseIcon from '@material-ui/icons/House';
 import CallMadeIcon from '@material-ui/icons/CallMade';
 import IconButton from '@material-ui/core/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHouses } from '../../../../redux/action/QuickAccess';
-import QuickAccessSelector from '../../../../redux/selector/QuickAccessSelector';
+import { getHouses } from '@redux/action/QuickAccess';
+import QuickAccessSelector from '@redux/selector/QuickAccessSelector';
 import PropTypes from 'prop-types';
+import ButtonPreview from '@genericComponents/ButtonPreview';
 
 const useStyles = makeStyles(() => ({
   title: {

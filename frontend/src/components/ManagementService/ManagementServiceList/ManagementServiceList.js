@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
-import ButtonPreview from '../../generic/ButtonPreview';
+import Index from '../../generic/ButtonPreview';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
@@ -29,7 +29,7 @@ const ManagementServiceList = ({ services, onClick }) => {
       <p className={classes.title}>{t('managementServiceListTitle')}</p>
       <div className={classes.listItem}>
         {services.map(el => (
-          <ButtonPreview
+          <Index
             key={el.id}
             startIcon={el.startIcon}
             startIconColor={el.startIconColor}

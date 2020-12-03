@@ -1,11 +1,12 @@
 import React from 'react';
-import SelectLanguage from '../../../SelectLanguage/SelectLanguage';
+
 import UserContainer from './UserContainer';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import './styles.css';
 import Badge from '@material-ui/core/Badge';
 import { useSelector } from 'react-redux';
+import SelectLanguage from '@components/SelectLanguage/SelectLanguage';
 
 export default function DrawerHeader() {
   const userInfo = useSelector(state => {
@@ -13,7 +14,9 @@ export default function DrawerHeader() {
   });
 
   function showMail() {}
+
   function showNotification() {}
+
   return (
     <header className="root">
       <div className="iconContainer">

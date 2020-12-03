@@ -6,14 +6,14 @@ export const initialState = {
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {
-        case CreateUser.RESPONSE_CREATE_USER:
-            return {
-                ...state,
-                success: action.payload.success,
-                message: action.payload.message
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case CreateUser.RESPONSE_CREATE_USER:
+      return {
+        ...state,
+        success: action.payload.success,
+        message: action.payload.message
+      };
+    default:
+      return state;
+  }
 };

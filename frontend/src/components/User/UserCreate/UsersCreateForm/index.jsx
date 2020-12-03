@@ -1,17 +1,17 @@
 import React from 'react';
-import CustomTextField from '../../generic/CustomTextField';
+import CustomTextField from '@genericComponents/CustomTextField';
 import { FormHelperText } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
-import CustomButton from '../../generic/CustomButton';
+import CustomButton from '@genericComponents/CustomButton';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
-import UploadPhoto from '../../generic/UploadPhoto';
+import UploadPhoto from '@genericComponents/UploadPhoto';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { createUsers } from '../../../redux/action/CurrentUser';
+import { createUsers } from '@redux/action/CurrentUser';
 
 const useStyles = makeStyles(() => ({
   buttons: {
@@ -90,7 +90,7 @@ const UsersCreateForm = () => {
   return (
     <form>
       <div className={classes.buttonsRoot}>
-        <div className={classes.buttons}>
+            <div className={classes.buttons}>
           <CustomButton
             onClick={() => setFieldValue('type', 'client')}
             fontSize="14px"

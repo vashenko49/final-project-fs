@@ -8,7 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import SelectView from '../../generic/SelectView';
+import Index from '../../generic/SelectView';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import MomentUtils from '@date-io/moment';
@@ -318,7 +318,7 @@ const ManagementServiceCreate = ({
                 </MuiPickersUtilsProvider>
               </div>
               <div>
-                <SelectView
+                <Index
                   error={errorHouse}
                   nameSelect={t('createManagementServiceChooseHouse')}
                   optionValues={[1, 2, 3]}

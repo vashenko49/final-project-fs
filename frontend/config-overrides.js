@@ -30,7 +30,11 @@ module.exports = (config, env) => {
         addWebpackAlias({
             '@': path.resolve(__dirname, 'src'),
             '@components': path.resolve(__dirname, 'src/components'),
+            '@genericComponents': path.resolve(__dirname, 'src/components/generic'),
+            '@pages': path.resolve(__dirname, 'src/pages'),
             '@hooks': path.resolve(__dirname, 'src/hooks'),
+            '@containers': path.resolve(__dirname, 'src/containers'),
+            '@redux': path.resolve(__dirname, 'src/redux'),
         }),
         addLessLoader({
             lessOptions: {

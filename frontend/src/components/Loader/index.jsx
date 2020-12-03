@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import SystemSelector from '../../redux/selector/System';
 
 const useStyles = makeStyles({

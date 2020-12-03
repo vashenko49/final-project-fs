@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import CustomButton from '../../generic/CustomButton';
+import CustomButton from '@genericComponents/CustomButton';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import { useTranslation } from 'react-i18next';
@@ -98,13 +98,7 @@ const SuccessCreateUser = ({ client }) => {
         <CustomButton onClick={handleClose} color="secondary" width="240px">
           {t('createUserSuccessReturn')}
         </CustomButton>
-        <CustomButton
-          onClick={handleClose}
-          href={`#${client.id}`}
-          color="primary"
-          autoFocus
-          width="240px"
-        >
+        <CustomButton onClick={handleClose} href={`#${client.id}`} color="primary" autoFocus width="240px">
           {t('createUserSuccessGoTo')}
         </CustomButton>
       </DialogActions>
