@@ -1,7 +1,7 @@
 import * as System from '../config/System';
 import * as AuthConfig from '../config/auth/Auth';
 import AuthAPI from '../../services/AuthAPI';
-import * as AuthUtils from '../../utils/Auth';
+import { getToken, removeToken, setToken } from '../../utils/Auth';
 
 export function login({ email, password, remember }, history) {
   return dispatch => {
@@ -12,9 +12,10 @@ export function login({ email, password, remember }, history) {
     AuthAPI.login({ email, password })
       .then(res => {
         dispatch({
-          type: AuthConfig.RESPONSE_LOGIN_SUCCESS
+          type: AuthConfig.RESPONSE_LOGIN_SUCCESS,
+          payload: res.data.user
         });
-        AuthUtils.setToken(remember, res.data);
+        setToken(remember, res.data.token);
         history.push('/');
       })
       .catch(err => {
@@ -22,32 +23,7 @@ export function login({ email, password, remember }, history) {
           type: AuthConfig.RESPONSE_LOGIN_FAILE,
           payload: err.message
         });
-        AuthUtils.removeToken();
-      })
-      .finally(() => {
-        dispatch({
-          type: System.STOP_LOAD
-        });
-      });
-  };
-}
-
-export function refresh() {
-  return dispatch => {
-    let refreshToken = AuthUtils.getRefreshToken();
-    AuthAPI.refresh({ Authorization: refreshToken })
-      .then(res => {
-        dispatch({
-          type: AuthConfig.RESPONSE_LOGIN_SUCCESS
-        });
-        AuthUtils.setToken(true, res.data);
-      })
-      .catch(err => {
-        dispatch({
-          type: AuthConfig.RESPONSE_LOGIN_FAILE,
-          payload: err
-        });
-        AuthUtils.removeToken();
+        removeToken();
       })
       .finally(() => {
         dispatch({
@@ -59,12 +35,13 @@ export function refresh() {
 
 export function authFromStorage() {
   return dispatch => {
-    const token = AuthUtils.getNotExpiredToken();
+    let token = getToken();
     if (token) {
-      AuthAPI.profile({ Authorization: token })
+      AuthAPI.profile()
         .then(res => {
           dispatch({
-            type: AuthConfig.RESPONSE_LOGIN_SUCCESS
+            type: AuthConfig.RESPONSE_LOGIN_SUCCESS,
+            payload: res.data
           });
         })
         .catch(err => {

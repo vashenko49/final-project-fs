@@ -1,35 +1,41 @@
-import axios from 'axios';
-
-export function isLogged() {
-  let auth = getToken();
-  return !!(auth && auth.accessToken);
-}
+import api from '../services/API';
 
 export function setToken(remember, tokenInfo) {
-  remember && localStorage.setItem('auth', JSON.stringify(tokenInfo));
-  axios.defaults.headers.common['Authorization'] = tokenInfo.tokenType + tokenInfo.accessToken;
+  remember
+    ? localStorage.setItem('auth', JSON.stringify(tokenInfo))
+    : sessionStorage.setItem('auth', JSON.stringify(tokenInfo));
+  api.defaults.headers.common['Authorization'] = tokenInfo.tokenType + tokenInfo.accessToken;
 }
 
-export function getNotExpiredToken() {
+export function tokenHasRemember() {
+  return !!localStorage.getItem('auth');
+}
+
+export function getNotExpiredAccessToken() {
   const token = getToken();
-  return (
-    token &&
+  return token &&
     token.hasOwnProperty('expiryAccessToken') &&
-    !Date(token.expiryAccessToken) > new Date() &&
-    token
-  );
+    new Date(token.expiryAccessToken) > new Date()
+    ? token.tokenType + token.accessToken
+    : null;
+}
+
+export function getNotExpiredRefreshToken() {
+  const token = getToken();
+  return token &&
+    token.hasOwnProperty('expiryAccessToken') &&
+    new Date(token.expiryRefreshToken) > new Date()
+    ? token.tokenType + token.refreshToken
+    : null;
 }
 
 export function removeToken() {
   localStorage.removeItem('auth');
-  delete axios.defaults.headers.common['Authorization'];
+  sessionStorage.removeItem('auth');
+  delete api.defaults.headers.common['Authorization'];
 }
 
 export function getToken() {
-  return JSON.parse(localStorage.getItem('auth'));
-}
-
-export function getRefreshToken() {
-  let token = JSON.parse(localStorage.getItem('auth'));
-  return token.tokenType + token.refreshToken;
+  let token = localStorage.getItem('auth') || sessionStorage.getItem('auth');
+  return token ? JSON.parse(token) : null;
 }

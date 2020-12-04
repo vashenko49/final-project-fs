@@ -1,18 +1,14 @@
 import React from 'react';
-import {Redirect, Route} from 'react-router-dom';
-import {useSelector} from 'react-redux';
-import Login from '../../redux/selector/auth/Auth';
+import {Route, Redirect} from 'react-router-dom';
 
-export const PrivateRoute = ({isPublic, ...route}) => {
-    const auth = useSelector(Login.getAuth);
-
-
-    if (isPublic) {
-        return <Route {...route} />
-    }
-
-    return auth.isAuth ? <Route {...route} /> : <Redirect to="/sign-in"/>
-};
-
+const PrivateRoute = ({component: Component, isPublic, isAuth, ...rest}) => (
+    <Route {...rest} render={props => (
+        isPublic
+            ? <Component {...props} />
+            : isAuth
+            ? <Component {...props} />
+            : <Redirect to={{pathname: '/sign-in', state: {from: props.location}}}/>
+    )}/>
+);
 
 export default PrivateRoute;

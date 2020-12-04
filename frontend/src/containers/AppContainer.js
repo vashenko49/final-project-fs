@@ -1,7 +1,10 @@
-import React, { lazy, Suspense, useMemo } from 'react';
+import React, { lazy, Suspense, useEffect, useMemo } from 'react';
 import { Container } from '@material-ui/core';
-import { PrivateRoute } from '@components/PrivateRoute';
+import PrivateRoute from '@components/PrivateRoute';
 import { Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authFromStorage } from '../redux/action/Auth';
+import Auth from '../redux/selector/auth/Auth';
 
 const routes = [
   {
@@ -24,15 +27,20 @@ const routes = [
 
 const AppContainer = () => {
   console.log('AppContainer');
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector(Auth.getAuth);
+
+  useEffect(() => {
+    dispatch(authFromStorage());
+  }, [dispatch]);
 
   const routeComponents = useMemo(
     () =>
       routes.map(({ isPublic, ...route }) => (
-        <PrivateRoute key={route.path} isPublic={isPublic} {...route} />
+        <PrivateRoute key={route.path} isAuth={isAuth} isPublic={isPublic} {...route} />
       )),
-    []
+    [isAuth]
   );
-
   console.log(routeComponents);
   return (
     <Container>

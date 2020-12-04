@@ -2,7 +2,8 @@ import * as Auth from '../../config/auth/Auth';
 
 export const initialState = {
   message: null,
-  isAuth: false
+  isAuth: false,
+  userProfile: null
 };
 
 export default (state = initialState, action) => {
@@ -10,12 +11,13 @@ export default (state = initialState, action) => {
     case Auth.RESPONSE_LOGIN_SUCCESS:
       return {
         ...state,
-        isAuth: true
+        isAuth: true,
+        userProfile: action.payload
       };
     case Auth.RESPONSE_LOGIN_FAILE:
       return {
         ...state,
-        isAuth: false,
+        ...initialState,
         message: action.payload
       };
     default:

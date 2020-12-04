@@ -2,7 +2,6 @@ package com.marksem.crm.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.marksem.crm.entity.enums.Currency;
 import com.marksem.crm.entity.enums.Language;
 import com.marksem.crm.entity.enums.Role;

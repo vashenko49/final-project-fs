@@ -1,18 +1,18 @@
 import axios from 'axios';
-
-const apiVersion = 'v1';
-const baseUrl = `/api/${apiVersion}/auth`;
+import api from '../services/API';
 
 export default class AuthAPI {
   static login = data => {
-    return axios.post(`${baseUrl}/login`, data);
+    return axios.post(`/api/v1/auth/login`, data);
+  };
+
+  static profile = () => {
+    return api.get(`auth/profile`);
   };
 
   static refresh = header => {
-    return axios.get(`${baseUrl}/refresh`, header);
-  };
-
-  static profile = header => {
-    return axios.get(`${baseUrl}/profile`, header);
+    return axios.get('/api/v1/auth/refresh', {
+      headers: header
+    });
   };
 }

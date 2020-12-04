@@ -2,9 +2,7 @@ package com.marksem.crm.facade;
 
 import com.marksem.crm.dto.request.AuthDtoRequest;
 import com.marksem.crm.dto.response.AuthDtoResponse;
-import com.marksem.crm.dto.response.DocumentDtoResponse;
 import com.marksem.crm.dto.response.UserDtoResponse;
-import com.marksem.crm.entity.Document;
 import com.marksem.crm.service.AuthService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -24,11 +22,11 @@ public class AuthFacade {
     }
 
     public AuthDtoResponse login(AuthDtoRequest authDtoRequest) {
-        return authService.login(authDtoRequest);
+        return mapper.map(authService.login(authDtoRequest), AuthDtoResponse.class);
     }
 
     public AuthDtoResponse refresh(HttpServletRequest request) {
-        return authService.refreshToken(request);
+        return mapper.map(authService.refreshToken(request), AuthDtoResponse.class);
     }
 
     public void logout(HttpServletRequest request, HttpServletResponse response) {
