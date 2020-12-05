@@ -43,6 +43,8 @@ export function authFromStorage() {
             type: AuthConfig.RESPONSE_LOGIN_SUCCESS,
             payload: res.data
           });
+
+          // TO DO установи тут хедер по умолчанию
         })
         .catch(err => {
           dispatch({

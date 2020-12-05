@@ -2,7 +2,7 @@ import * as Auth from '../../config/auth/Auth';
 import { getToken } from '@utils/Auth';
 
 let token = getToken();
-console.log(token);
+
 export const initialState = {
   message: null,
   isAuth: Boolean(token),
