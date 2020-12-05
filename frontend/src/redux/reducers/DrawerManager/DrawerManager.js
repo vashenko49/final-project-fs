@@ -1,12 +1,7 @@
 import * as DrawerManager from '../../config/DrawerManager';
 
 export const initialState = {
-  managerInfo: {
-    managerMail: 'olegprutyla@gmail.com',
-    managerName: 'Олег Притула',
-    managerTel: '093-111-11-11',
-    userAvatar: ''
-  }
+  managerInfo: []
 };
 
 export default (state = initialState, action) => {

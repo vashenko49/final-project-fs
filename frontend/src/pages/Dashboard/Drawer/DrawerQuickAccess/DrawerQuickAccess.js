@@ -51,14 +51,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerQuickAccess = ({ onClick }) => {
+  const classes = useStyles();
   const houses = useSelector(QuickAccessSelector.getHouses);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getHouses());
   }, [dispatch]);
-  const icon = <HouseIcon fontSize="large" htmlColor="#fff" />;
-  const classes = useStyles();
+
   const { t } = useTranslation();
+
+  const icon = <HouseIcon fontSize="large" htmlColor="#fff" />;
   return (
     <div>
       <div className={classes.title}>{t('drawerQuickAccess')}</div>
