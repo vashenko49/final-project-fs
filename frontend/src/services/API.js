@@ -1,11 +1,11 @@
 import axios from 'axios';
-import AuthAPI from '../services/AuthAPI';
-import {
-  getNotExpiredAccessToken,
-  getNotExpiredRefreshToken,
-  setToken,
-  tokenHasRemember
-} from '../utils/Auth';
+// import AuthAPI from '../services/AuthAPI';
+// import {
+//   getNotExpiredAccessToken,
+//   getNotExpiredRefreshToken,
+//   setToken,
+//   tokenHasRemember
+// } from '../utils/Auth';
 
 const api = axios.create({
   baseURL: '/api/v1/'
