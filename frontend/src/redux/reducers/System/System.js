@@ -1,7 +1,8 @@
 import * as SYSTEM from '../../config/System';
 
 export const initialState = {
-  load: false
+  load: false,
+  pageLoad: true
 };
 
 export default (state = initialState, action) => {
@@ -11,10 +12,20 @@ export default (state = initialState, action) => {
         ...state,
         load: true
       };
+    case SYSTEM.START_PAGE_LOAD:
+      return {
+        ...state,
+        pageLoad: true
+      };
     case SYSTEM.STOP_LOAD:
       return {
         ...state,
         load: false
+      };
+    case SYSTEM.STOP_PAGE_LOAD:
+      return {
+        ...state,
+        pageLoad: false
       };
     default:
       return state;

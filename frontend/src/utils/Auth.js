@@ -4,7 +4,8 @@ export function setToken(remember, tokenInfo) {
   remember
     ? localStorage.setItem('auth', JSON.stringify(tokenInfo))
     : sessionStorage.setItem('auth', JSON.stringify(tokenInfo));
-  api.defaults.headers.common['Authorization'] = tokenInfo.tokenType + tokenInfo.accessToken;
+
+  api.defaults.headers.common['Authorization'] = tokenInfo.tokenType + ' ' + tokenInfo.accessToken;
 }
 
 export function tokenHasRemember() {

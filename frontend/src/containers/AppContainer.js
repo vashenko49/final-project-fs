@@ -3,8 +3,10 @@ import { Container } from '@material-ui/core';
 import PrivateRoute from '@components/PrivateRoute';
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { authFromStorage } from '../redux/action/Auth';
-import Auth from '../redux/selector/auth/Auth';
+import { authFromStorage } from '@redux/action/Auth';
+import Auth from '@redux/selector/auth/Auth';
+import { PageLoader } from '@components/Loader';
+import SystemSelector from '@redux/selector/System';
 
 const routes = [
   {
@@ -26,13 +28,14 @@ const routes = [
 ];
 
 const AppContainer = () => {
-  console.log('AppContainer');
   const dispatch = useDispatch();
   const { isAuth } = useSelector(Auth.getAuth);
+  const load = useSelector(SystemSelector.getStatusPageLoad);
 
   useEffect(() => {
     dispatch(authFromStorage());
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   const routeComponents = useMemo(
     () =>
@@ -41,10 +44,11 @@ const AppContainer = () => {
       )),
     [isAuth]
   );
-  console.log(routeComponents);
+
   return (
     <Container>
-      <Suspense fallback={<p>1234</p>}>
+      <PageLoader load={load} />
+      <Suspense fallback={<></>}>
         <Switch>{routeComponents}</Switch>
       </Suspense>
     </Container>

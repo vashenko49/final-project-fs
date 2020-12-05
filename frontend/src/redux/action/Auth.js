@@ -1,7 +1,7 @@
 import * as System from '../config/System';
 import * as AuthConfig from '../config/auth/Auth';
 import AuthAPI from '../../services/AuthAPI';
-import { getToken, removeToken, setToken } from '../../utils/Auth';
+import { getToken, removeToken, setToken } from '@utils/Auth';
 
 export function login({ email, password, remember }, history) {
   return dispatch => {
@@ -37,7 +37,7 @@ export function authFromStorage() {
   return dispatch => {
     let token = getToken();
     if (token) {
-      AuthAPI.profile()
+      AuthAPI.profileCheckToken(token.tokenType + ' ' + token.accessToken)
         .then(res => {
           dispatch({
             type: AuthConfig.RESPONSE_LOGIN_SUCCESS,
@@ -49,7 +49,20 @@ export function authFromStorage() {
             type: AuthConfig.RESPONSE_LOGIN_FAILE,
             payload: err
           });
+        })
+        .finally(() => {
+          setTimeout(() => {
+            dispatch({
+              type: System.STOP_PAGE_LOAD
+            });
+          }, 1000);
         });
+    } else {
+      setTimeout(() => {
+        dispatch({
+          type: System.STOP_PAGE_LOAD
+        });
+      }, 1000);
     }
   };
 }

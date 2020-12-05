@@ -4,7 +4,6 @@ import UsersAPI from '../../services/UsersAPI';
 import * as CreateUser from '../config/user/CreateUser';
 
 export const getUserInfo = () => dispatch => {
-  console.log('--> getUserInfo');
   let userInfo = {
     userMail: 1,
     userNotifications: 5,
