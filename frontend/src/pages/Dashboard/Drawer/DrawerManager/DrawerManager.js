@@ -62,6 +62,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerManager = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const managerInfo = useSelector(DrawerManagerSelector.getManagerInfo);
 
@@ -69,8 +70,8 @@ const DrawerManager = () => {
     dispatch(getManagerInfo());
   }, [dispatch]);
 
-  const classes = useStyles();
   const { t } = useTranslation();
+
   return (
     <div>
       <p className={classes.title}>{t('personalManager')}</p>
