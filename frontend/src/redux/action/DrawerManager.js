@@ -1,17 +1,25 @@
+import * as SYSTEM from '../config/System';
 import * as DrawerManager from '../config/DrawerManager';
+import DrawerManagerAPI from '../../services/DrawerManagerAPI';
 
-export const getManagerInfo = () => {
-  return async dispatch => {
-    let managerInfo = {
-      managerMail: 'olegprutyla@gmail.com',
-      managerName: 'Олег Притула',
-      managerTel: '093-111-11-11',
-      userAvatar: ''
-    };
-    // const response = await fetch('http://localhost/managerInfo')
+export function getManagerInfo() {
+  return dispatch => {
     dispatch({
-      type: DrawerManager.GET_MANAGER_INFO,
-      payload: managerInfo
+      type: SYSTEM.START_LOAD
     });
+
+    DrawerManagerAPI.getManagerInfo()
+      .then(res => {
+        dispatch({
+          type: DrawerManager.GET_MANAGER_INFO,
+          payload: res.data
+        });
+      })
+      .catch(err => err)
+      .finally(() => {
+        dispatch({
+          type: SYSTEM.STOP_LOAD
+        });
+      });
   };
-};
+}

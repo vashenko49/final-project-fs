@@ -1,7 +1,7 @@
 import Card from '@material-ui/core/Card';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
 import EmailIcon from '@material-ui/icons/Email';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Avatar from '@material-ui/core/Avatar';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getManagerInfo } from '../../../../redux/action/DrawerManager';
+import DrawerManagerSelector from '../../../../redux/selector/DrawerManagerSelector';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -60,11 +62,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 const DrawerManager = () => {
+  const dispatch = useDispatch();
+  const managerInfo = useSelector(DrawerManagerSelector.getManagerInfo);
+
+  useEffect(() => {
+    dispatch(getManagerInfo());
+  }, [dispatch]);
+
   const classes = useStyles();
   const { t } = useTranslation();
-  const managerInfo = useSelector(state => {
-    return state.DrawerManager.managerInfo;
-  });
   return (
     <div>
       <p className={classes.title}>{t('personalManager')}</p>
@@ -73,7 +79,7 @@ const DrawerManager = () => {
           <Avatar
             className={classes.avatar}
             alt="Avatar"
-            src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" /* src={manager.photo} */
+            src={managerInfo.managerAvatar} /* src={manager.photo} */
           />
           <CardContent>
             <div className={classes.line}>{}</div>
