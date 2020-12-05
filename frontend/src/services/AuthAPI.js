@@ -6,6 +6,14 @@ export default class AuthAPI {
     return axios.post(`/api/v1/auth/login`, data);
   };
 
+  static profileCheckToken = token => {
+    return api.get(`auth/profile`, {
+      headers: {
+        Authorization: token
+      }
+    });
+  };
+
   static profile = () => {
     return api.get(`auth/profile`);
   };

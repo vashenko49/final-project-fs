@@ -1,38 +1,38 @@
 import axios from 'axios';
-import AuthAPI from '../services/AuthAPI';
-import {
-  getNotExpiredAccessToken,
-  getNotExpiredRefreshToken,
-  setToken,
-  tokenHasRemember
-} from '../utils/Auth';
+// import AuthAPI from '../services/AuthAPI';
+// import {
+//   getNotExpiredAccessToken,
+//   getNotExpiredRefreshToken,
+//   setToken,
+//   tokenHasRemember
+// } from '../utils/Auth';
 
 const api = axios.create({
   baseURL: '/api/v1/'
 });
 
-api.interceptors.request.use(
-  async request => {
-    const accessToken = getNotExpiredAccessToken();
-    if (accessToken) {
-      request.headers.Authorization = accessToken;
-    } else {
-      const refreshToken = getNotExpiredRefreshToken();
-      if (refreshToken) {
-        console.log(request);
-        await AuthAPI.refresh({ Authorization: refreshToken }).then(({ data }) => {
-          setToken(tokenHasRemember(), data.token);
-          request.headers.Authorization = getNotExpiredAccessToken();
-        });
-        // .catch(() => window.location.replace('sign-in'));
-      } else {
-        // window.location.replace('sign-in');
-      }
-    }
-    return request;
-  },
-  error => Promise.reject(error)
-);
+// api.interceptors.request.use(
+//   async request => {
+//     const accessToken = getNotExpiredAccessToken();
+//     if (accessToken) {
+//       request.headers.Authorization = accessToken;
+//     } else {
+//       const refreshToken = getNotExpiredRefreshToken();
+//       if (refreshToken) {
+//         console.log(request);
+//         await AuthAPI.refresh({ Authorization: refreshToken }).then(({ data }) => {
+//           setToken(tokenHasRemember(), data.token);
+//           request.headers.Authorization = getNotExpiredAccessToken();
+//         });
+//         // .catch(() => window.location.replace('sign-in'));
+//       } else {
+//         // window.location.replace('sign-in');
+//       }
+//     }
+//     return request;
+//   },
+//   error => Promise.reject(error)
+// );
 
 // api.interceptors.response.use(
 //     response => response,

@@ -1,8 +1,11 @@
 import * as Auth from '../../config/auth/Auth';
+import { getToken } from '@utils/Auth';
+
+let token = getToken();
 
 export const initialState = {
   message: null,
-  isAuth: false,
+  isAuth: Boolean(token),
   userProfile: null
 };
 
@@ -18,7 +21,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         ...initialState,
-        message: action.payload
+        message: action.payload,
+        isAuth: false
       };
     default:
       return state;
