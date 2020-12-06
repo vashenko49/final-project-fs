@@ -14,15 +14,9 @@ import Header from './Header/Header';
 import {useDispatch, useSelector} from 'react-redux';
 import DrawerHeader from './Drawer/DrawerHeader/Header';
 import {getUserInfo} from '../../redux/action/CurrentUser';
-import DrawerManager from './Drawer/DrawerManager/DrawerManager';
 import {getManagerInfo} from '../../redux/action/DrawerManager';
 
-import DrawerQuickAccess from './Drawer/DrawerQuickAccess/DrawerQuickAccess';
-
-
-import News from "@components/News";
-import ManagementService from "@components/ManagementService/ManagementService";
-import UsersCreate from "@components/User/UserCreate";
+import ClientDetails from "./ClientDetails";
 
 const drawerWidth = 450;
 
@@ -154,8 +148,6 @@ const Dashboard = props => {
           <DrawerHeader/>
           {/* Контент под хедером */}
         </div>
-        <DrawerQuickAccess/>
-        <DrawerManager/>
       </Drawer>
   );
 
@@ -182,10 +174,7 @@ const Dashboard = props => {
               )}
           >
             {/* PUT MAIN CONTENT HERE */}
-
-            <ManagementService/>
-            <UsersCreate/>
-            <News/>
+              <ClientDetails/>
           </main>
           {drawer}
         </div>

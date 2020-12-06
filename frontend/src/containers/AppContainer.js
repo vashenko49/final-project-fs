@@ -7,6 +7,7 @@ import { authFromStorage } from '@redux/action/Auth';
 import Auth from '@redux/selector/auth/Auth';
 import { PageLoader } from '@components/Loader';
 import SystemSelector from '@redux/selector/System';
+import { PreLoader } from '../components/Loader';
 
 const routes = [
   {
@@ -48,6 +49,7 @@ const AppContainer = () => {
   return (
     <Container>
       <PageLoader load={load} />
+      <PreLoader />
       <Suspense fallback={<></>}>
         <Switch>{routeComponents}</Switch>
       </Suspense>
