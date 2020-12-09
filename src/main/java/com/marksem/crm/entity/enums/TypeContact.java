@@ -1,7 +1,8 @@
 package com.marksem.crm.entity.enums;
 
 public enum TypeContact {
-    MOBILE_PHONE,
+    MAIN_PHONE,
+    OTHER_PHONE,
     EMAIL,
     URL
 }

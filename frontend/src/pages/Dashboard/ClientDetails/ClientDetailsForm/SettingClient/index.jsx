@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SettingClient = ()=>{
-    return(<p>SettingClient</p>)
+    return(<p></p>)
 }
 
 export default SettingClient;

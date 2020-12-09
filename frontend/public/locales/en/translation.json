@@ -58,11 +58,20 @@
   "validationMin6Char": "min 6 characters",
   "validationEmail": "email not valid",
   "validationFormatFile": "valid format jpg/jpeg/image",
+  "validationFileSize": "size must be less than 1048kb",
   "signInTitle": "Sign in",
   "signInEmail": "Email Address",
   "signInPassword": "Password",
   "signInRemember": "Remember me",
   "signInBtn": "Sign In",
   "signInForgot": "Forgot password?",
-  "signInFail": "Incorrect login or password"
+  "signInFail": "Incorrect login or password",
+  "validationMin10Char": "min 10 characters",
+  "profileTitleFieldName": "Name",
+  "profileTitleFieldPhone": "Phone",
+  "profileTitleFieldPhones": "Additional telephony",
+  "profileTitleFieldEmail": "Email",
+  "profileBtnAddPhones": "+ Add additional phone number",
+  "profileBtnSave": "Save",
+  "errorTitle": "Something went wrong"
 }

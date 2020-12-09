@@ -10,6 +10,7 @@ import QuickAccess from './QuickAccess/QuickAccess';
 import News from './News/News';
 import CreateUser from './User/CreateUser';
 import Auth from './Auth/Auth';
+import Error from './Error/Error';
 
 export default combineReducers({
   System,
@@ -20,5 +21,6 @@ export default combineReducers({
   QuickAccess,
   News,
   CreateUser,
-  Auth
+  Auth,
+  Error
 });

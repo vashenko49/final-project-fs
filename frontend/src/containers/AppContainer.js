@@ -5,9 +5,9 @@ import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authFromStorage } from '@redux/action/Auth';
 import Auth from '@redux/selector/auth/Auth';
-import { PageLoader } from '@components/Loader';
+import { PageLoader, PreLoader } from '@components/Loader';
 import SystemSelector from '@redux/selector/System';
-import { PreLoader } from '../components/Loader';
+import Error from '../components/Error';
 
 const routes = [
   {
@@ -36,7 +36,7 @@ const AppContainer = () => {
   useEffect(() => {
     dispatch(authFromStorage());
     // eslint-disable-next-line
-  }, []);
+    }, []);
 
   const routeComponents = useMemo(
     () =>
@@ -52,6 +52,7 @@ const AppContainer = () => {
       <PreLoader />
       <Suspense fallback={<></>}>
         <Switch>{routeComponents}</Switch>
+        <Error />
       </Suspense>
     </Container>
   );

@@ -1,37 +1,32 @@
 package com.marksem.crm.dto.request.user;
 
 import com.marksem.crm.dto.request.BaseDtoRequest;
+import com.marksem.crm.dto.request.ContactDtoRequest;
 import com.marksem.crm.dto.request.groups.New;
 import com.marksem.crm.dto.request.groups.Update;
-import com.marksem.crm.entity.enums.Role;
-import com.marksem.crm.validation.enums.EnumValue;
 import com.marksem.crm.validation.file.FileType;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateUserDtoRequest extends BaseDtoRequest {
-    @NotBlank(groups = {New.class, Update.class})
-    @EnumValue(enumClass = Role.class, ignoreCase = true, groups = {New.class, Update.class})
-    private String type;
+public class UpdateProfileDtoRequest extends BaseDtoRequest {
 
     @NotBlank(groups = {New.class, Update.class})
     private String name;
 
-    @Null(groups = {Update.class})
-    @NotBlank(groups = {New.class})
-    @Email(groups = {New.class})
+    @NotBlank(groups = {New.class, Update.class})
+    @Email(groups = {New.class, Update.class})
     private String email;
 
-    @NotBlank(groups = {New.class, Update.class})
-    @Size(min = 6, groups = {New.class, Update.class})
-    private String password;
+    private List<ContactDtoRequest> phones;
 
     @FileType(value = {"image/jpg", "image/jpeg", "image/png"}, groups = {New.class, Update.class})
     private MultipartFile photo;

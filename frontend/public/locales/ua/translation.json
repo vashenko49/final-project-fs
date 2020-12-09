@@ -58,11 +58,20 @@
   "validationMin6Char": "не менше 6 символів",
   "validationEmail": "електронна адреса недійсна",
   "validationFormatFile": "допустимий формат jpg/jpeg/image",
+  "validationFileSize": "розмір повинен бути менше 1048кб",
   "signInTitle": "Увійти",
   "signInEmail": "Адреса електронної пошти",
   "signInPassword": "Пароль",
   "signInRemember": "Запам'ятати мене",
   "signInBtn": "Увійти",
   "signInForgot": "Забули пароль?",
-  "signInFail": "Неправильний логін або пароль"
+  "signInFail": "Неправильний логін або пароль",
+  "validationMin10Char": "не менше 10 символів",
+  "profileTitleFieldName": "П.І.Б.",
+  "profileTitleFieldPhone": "Телефон",
+  "profileTitleFieldPhones": "Додаткові телефони",
+  "profileTitleFieldEmail": "Email",
+  "profileBtnAddPhones": "+ Додати додатковий телефон",
+  "profileBtnSave": "Зберегти",
+  "errorTitle": "Щось пішло не так"
 }

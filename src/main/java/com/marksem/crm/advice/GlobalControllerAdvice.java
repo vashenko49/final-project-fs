@@ -3,6 +3,7 @@ package com.marksem.crm.advice;
 import com.marksem.crm.exceptions.CustomErrorResponse;
 import com.marksem.crm.exceptions.auth.JwtAuthenticationException;
 import com.marksem.crm.exceptions.user.UserExistException;
+import com.marksem.crm.exceptions.user.UserNotFoundException;
 import com.marksem.crm.exceptions.user.UserNotHasPermitException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -80,6 +81,12 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(UserNotHasPermitException.class)
     public ResponseEntity<Object> userNotHasPermitException(Exception ex) {
+        log.error(ex.getMessage(), ex);
+        return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<Object> userNotFoundException(Exception ex) {
         log.error(ex.getMessage(), ex);
         return new ResponseEntity<>(new CustomErrorResponse(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }

@@ -6,19 +6,21 @@ import com.marksem.crm.entity.enums.TypeContact;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@EqualsAndHashCode(callSuper = true)
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContactDtoRequest extends BaseDtoRequest {
-    @NotBlank(
-            groups = {New.class, Update.class}
-    )
+public class ContactDtoRequest implements Serializable {
+
+    private Long id;
+
+    @NotBlank(groups = {New.class, Update.class})
     private TypeContact type;
-    @NotBlank(
-            groups = {New.class, Update.class}
-    )
+
+    @NotBlank(groups = {New.class, Update.class})
+    @Size(min = 10, groups = {New.class, Update.class})
     private String value;
 }

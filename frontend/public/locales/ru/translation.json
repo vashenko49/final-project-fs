@@ -58,11 +58,20 @@
   "validationMin6Char": "минимум 6 знаков",
   "validationEmail": "электронная почта недействительна",
   "validationFormatFile": "допустимый формат jpg/jpeg/image",
+  "validationFileSize": "размер должен быть меньше 1048кб",
   "signInTitle": "Войти",
   "signInEmail": "Адрес электронной почты",
   "signInPassword": "Пароль",
   "signInRemember": "Запомнить меня",
   "signInBtn": "Войти",
   "signInForgot": "Забыли пароль?",
-  "signInFail": "Неправильный логин или пароль"
+  "signInFail": "Неправильный логин или пароль",
+  "validationMin10Char": "минимум 10 знаков",
+  "profileTitleFieldName": "Ф.И.О.",
+  "profileTitleFieldPhone": "Телефон",
+  "profileTitleFieldPhones": "Дополнительные телефоны",
+  "profileTitleFieldEmail": "Email",
+  "profileBtnAddPhones": "+ Добавить дополнительный телефон",
+  "profileBtnSave": "Сохранить",
+  "errorTitle": "Что-то пошло не так"
 }

@@ -1,13 +1,11 @@
-import * as System from '../config/System';
 import * as AuthConfig from '../config/auth/Auth';
 import AuthAPI from '../../services/AuthAPI';
 import { getToken, removeToken, setToken } from '../../utils/Auth';
+import { startLoad, stopLoad, stopPageLoad } from './System';
 
 export function login({ email, password, remember }, history) {
   return dispatch => {
-    dispatch({
-      type: System.START_LOAD
-    });
+    dispatch(startLoad());
 
     AuthAPI.login({ email, password })
       .then(res => {
@@ -25,11 +23,7 @@ export function login({ email, password, remember }, history) {
         });
         removeToken();
       })
-      .finally(() => {
-        dispatch({
-          type: System.STOP_LOAD
-        });
-      });
+      .finally(() => dispatch(stopLoad()));
   };
 }
 
@@ -51,10 +45,6 @@ export function authFromStorage() {
           });
         });
     }
-    setTimeout(() => {
-      dispatch({
-        type: System.STOP_PAGE_LOAD
-      });
-    }, 1000);
+    setTimeout(() => dispatch(stopPageLoad()), 1000);
   };
 }
