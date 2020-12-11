@@ -73,5 +73,16 @@
   "profileTitleFieldEmail": "Email",
   "profileBtnAddPhones": "+ Add additional phone number",
   "profileBtnSave": "Save",
-  "errorTitle": "Something went wrong"
+  "errorTitle": "Something went wrong",
+  "settingClientTabInformation": "Information",
+  "settingClientTabHouses": "Houses",
+  "settingClientTabDocuments": "Documents",
+  "settingClientTabRent": "Rent",
+  "settingClientTabHistory": "History",
+  "settingClientInformationAffiliateTitle": "Affiliate",
+  "settingClientInformationPaymentStatusTitle": "Payment Status",
+  "settingClientInformationPaymentStatusValue": "Executed",
+  "settingClientInformationEditBtnTitle": "Edit",
+  "settingClientInformationSaveBtnTitle": "Save",
+  "settingClientInformationWriteBtnTitle": "Write"
 }

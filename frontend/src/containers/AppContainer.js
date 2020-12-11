@@ -7,7 +7,7 @@ import { authFromStorage } from '@redux/action/Auth';
 import Auth from '@redux/selector/auth/Auth';
 import { PageLoader, PreLoader } from '@components/Loader';
 import SystemSelector from '@redux/selector/System';
-import Error from '../components/Error';
+import Error from '@components/Error';
 
 const routes = [
   {
