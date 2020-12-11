@@ -5,22 +5,22 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import TabPanel from "../../../../../components/generic/TabPanel";
 import Information from "./Information";
 import {useTranslation} from "react-i18next";
+import Houses from "./Houses";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        padding: '20px',
-        width: '100%'
+        padding: '20px'
     },
 }));
 
 const SettingClient = () => {
     const classes = useStyles();
-    const [selectTab, setSelectTab] = useState(0);
+    const [selectTab, setSelectTab] = useState(1);
     const {t} = useTranslation();
 
     const tabs = [
         {label: t('settingClientTabInformation'), component: <Information/>},
-        {label: t('settingClientTabHouses'), component: <p>{t('settingClientTabHouses')}</p>},
+        {label: t('settingClientTabHouses'), component: <Houses/>},
         {label: t('settingClientTabDocuments'), component: <p>{t('settingClientTabDocuments')}</p>},
         {label: t('settingClientTabRent'), component: <p>{t('settingClientTabRent')}</p>},
         {label: t('settingClientTabHistory'), component: <p>{t('settingClientTabHistory')}</p>}

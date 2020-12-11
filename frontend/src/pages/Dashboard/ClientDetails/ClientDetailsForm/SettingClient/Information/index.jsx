@@ -37,6 +37,11 @@ const useStyles = makeStyles(() => ({
         '&.MuiButton-root.Mui-disabled': {
             color: '#6E7375'
         }
+    },
+    input: {
+        '&.MuiFormControl-root': {
+            width: "115px"
+        },
     }
 }));
 
@@ -70,11 +75,12 @@ const Information = () => {
                 </Grid>
                 <Grid item xs={5}>
                     {isEdit.affiliate
-                        ? <TextField fullWidth
-                                     id='affiliate'
-                                     variant="outlined"
-                                     defaultValue={value.affiliate}
-                                     onChange={handleChangeValue}
+                        ? <TextField
+                            id='affiliate'
+                            variant="outlined"
+                            defaultValue={value.affiliate}
+                            onChange={handleChangeValue}
+                            className={classes.input}
                         />
                         : <CustomButton className={classes.status}
                                         disabled color="secondary">
@@ -102,11 +108,12 @@ const Information = () => {
                 </Grid>
                 <Grid item xs={5}>
                     {isEdit.paymentStatus
-                        ? <TextField fullWidth
-                                     id='paymentStatus'
-                                     variant="outlined"
-                                     defaultValue={value.paymentStatus}
-                                     onChange={handleChangeValue}
+                        ? <TextField
+                            id='paymentStatus'
+                            variant="outlined"
+                            defaultValue={value.paymentStatus}
+                            onChange={handleChangeValue}
+                            className={classes.input}
                         />
                         : <CustomButton className={classes.status}
                                         color="secondary"
@@ -129,16 +136,18 @@ const Information = () => {
                 </Grid>
             </Grid>
 
-            {isEdit.description
-                ? <TextField fullWidth
-                             id='description'
-                             variant="outlined"
-                             multiline
-                             defaultValue={value.description}
-                             onChange={handleChangeValue}
-                />
-                : <p className={classes.text}>{value.description}</p>
-            }
+            <div className={classes.text}>
+                {isEdit.description
+                    ? <TextField fullWidth
+                                 id='description'
+                                 variant="outlined"
+                                 multiline
+                                 defaultValue={value.description}
+                                 onChange={handleChangeValue}
+                    />
+                    : <p>{value.description}</p>
+                }
+            </div>
 
             <Grid container>
                 <Grid item xs={6}>

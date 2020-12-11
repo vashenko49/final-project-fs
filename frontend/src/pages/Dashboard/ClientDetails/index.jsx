@@ -6,10 +6,8 @@ const useStyles = makeStyles({
     clientName: {
         textAlign: 'left;',
         font: 'normal normal bold 18px / 24px Roboto',
-        letterSpacing: '-0.09px;',
         color: '#293134',
         textTransform: 'capitalize',
-        opacity: '1',
         marginBottom: '20px'
     }
 })

@@ -84,5 +84,6 @@
   "settingClientInformationPaymentStatusValue": "Виконано",
   "settingClientInformationEditBtnTitle": "Редагувати",
   "settingClientInformationSaveBtnTitle": "Зберегти",
-  "settingClientInformationWriteBtnTitle": "Запис"
+  "settingClientInformationWriteBtnTitle": "Запис",
+  "cardHouseContractTitle": "Контракт"
 }

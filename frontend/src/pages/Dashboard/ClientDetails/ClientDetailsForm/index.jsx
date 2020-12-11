@@ -12,14 +12,16 @@ import {errorShow} from "@redux/action/Error";
 const useStyles = makeStyles({
     main: {
         display: 'flex',
-        padding: 0,
-        '&>:first-of-type': {
-            flexBasis: '35%'
-        }
+        padding: 0
     },
     profile: {
-        boxShadow: '5px 0px 7px -5px #00000033'
+        boxShadow: '5px 0px 7px -5px #00000033',
+        minWidth: '35%'
+    },
+    settingClient: {
+        minWidth: '65%'
     }
+
 })
 
 const ClientDetailsForm = ({id}) => {
@@ -46,7 +48,7 @@ const ClientDetailsForm = ({id}) => {
                                          photo={user.urlAvatar}/>
                 }
             </div>
-            <SettingClient/>
+            <div className={classes.settingClient}><SettingClient/></div>
         </Card>
     )
 }
@@ -55,7 +57,7 @@ ClientDetailsForm.defaultProps = {
     id: 2
 }
 
-ClientDetailsForm.prototype = {
+ClientDetailsForm.propTypes = {
     id: PropTypes.number.isRequired
 }
 

@@ -84,5 +84,6 @@
   "settingClientInformationPaymentStatusValue": "Executed",
   "settingClientInformationEditBtnTitle": "Edit",
   "settingClientInformationSaveBtnTitle": "Save",
-  "settingClientInformationWriteBtnTitle": "Write"
+  "settingClientInformationWriteBtnTitle": "Write",
+  "cardHouseContractTitle": "Contract"
 }
