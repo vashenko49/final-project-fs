@@ -8,14 +8,14 @@ import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useTranslation} from "react-i18next";
-import CustomButton from "../../components/generic/CustomButton";
+import CustomButton from "@components/generic/CustomButton";
 import * as Yup from "yup";
 import {useFormik} from "formik";
 import Logo from "../Dashboard/Header/Logo/Logo";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/action/Auth";
+import {login} from "@redux/action/Auth";
 import {FormHelperText} from "@material-ui/core";
-import Auth from "../../redux/selector/auth/Auth";
+import Auth from "@redux/selector/auth/Auth";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

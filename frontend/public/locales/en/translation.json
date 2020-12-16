@@ -85,5 +85,9 @@
   "settingClientInformationEditBtnTitle": "Edit",
   "settingClientInformationSaveBtnTitle": "Save",
   "settingClientInformationWriteBtnTitle": "Write",
-  "cardHouseContractTitle": "Contract"
+  "cardHouseContractTitle": "Contract",
+  "housesDetailsStatusTitle": "Status",
+  "housesDetailsAreaTitle": "House Area",
+  "housesDetailsAddressTitle": "Location",
+  "housesDetailsTypeTitle": "Options"
 }

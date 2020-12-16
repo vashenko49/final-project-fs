@@ -8,24 +8,31 @@ import * as PropTypes from "prop-types";
 import {useDispatch} from "react-redux";
 import {startLoad, stopLoad} from "@redux/action/System";
 import {errorShow} from "@redux/action/Error";
+import HousesDetails from "./HousesDetails";
 
 const useStyles = makeStyles({
-    main: {
-        display: 'flex',
+    root: {
         padding: 0
     },
+    main: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
     profile: {
-        boxShadow: '5px 0px 7px -5px #00000033',
-        minWidth: '35%'
+        boxSizing: 'border-box',
+        boxShadow: '5px 5px 7px -5px #00000033',
+        height: 'max-content',
+        width: '35%'
     },
     settingClient: {
-        minWidth: '65%'
+        width: '65%'
     }
 
 })
 
 const ClientDetailsForm = ({id}) => {
     const [user, setUser] = useState(null)
+    const [isChooseHouses, setIsChooseHouses] = useState(null)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,18 +44,27 @@ const ClientDetailsForm = ({id}) => {
         // eslint-disable-next-line
     }, [id])
 
+    const handleIsChooseHouses = (flag) => {
+        setIsChooseHouses(flag)
+    }
+
     const classes = useStyles();
     return (
-        <Card className={classes.main}>
-            <div className={classes.profile}>
-                {user && <ProfileSideBar email={user.email}
-                                         id={user.id}
-                                         name={user.name}
-                                         phones={user.contacts}
-                                         photo={user.urlAvatar}/>
-                }
+        <Card className={classes.root}>
+            <div className={classes.main}>
+                <div className={classes.profile}>
+                    {user && <ProfileSideBar email={user.email}
+                                             id={user.id}
+                                             name={user.name}
+                                             phones={user.contacts}
+                                             photo={user.urlAvatar}/>
+                    }
+                </div>
+                <div className={classes.settingClient}>
+                    <SettingClient handleIsChooseHouses={handleIsChooseHouses}/>
+                </div>
             </div>
-            <div className={classes.settingClient}><SettingClient/></div>
+            {isChooseHouses ? <HousesDetails/> : null}
         </Card>
     )
 }

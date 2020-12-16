@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CustomButton from "../../../../../../components/generic/CustomButton";
+import CustomButton from "@components/generic/CustomButton";
 import ChatIcon from '@material-ui/icons/Chat';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';

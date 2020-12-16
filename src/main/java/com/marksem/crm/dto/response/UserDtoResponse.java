@@ -2,6 +2,7 @@ package com.marksem.crm.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.marksem.crm.entity.House;
 import com.marksem.crm.entity.enums.Currency;
 import com.marksem.crm.entity.enums.Language;
 import com.marksem.crm.entity.enums.Role;
@@ -28,4 +29,5 @@ public class UserDtoResponse extends BaseDtoResponse {
     private Currency currency;
     private Language language;
     private List<ContactDtoResponse> contacts = new ArrayList<>();
+    private List<HouseDtoResponse> houses = new ArrayList<>();
 }

@@ -84,6 +84,10 @@
   "settingClientInformationPaymentStatusValue": "Виконано",
   "settingClientInformationEditBtnTitle": "Редагувати",
   "settingClientInformationSaveBtnTitle": "Зберегти",
-  "settingClientInformationWriteBtnTitle": "Запис",
-  "cardHouseContractTitle": "Контракт"
+  "settingClientInformationWriteBtnTitle": "Написати",
+  "cardHouseContractTitle": "Контракт",
+  "housesDetailsStatusTitle": "Статус",
+  "housesDetailsAreaTitle": "Площа будинку",
+  "housesDetailsAddressTitle": "Локація",
+  "housesDetailsTypeTitle": "Комплектація"
 }

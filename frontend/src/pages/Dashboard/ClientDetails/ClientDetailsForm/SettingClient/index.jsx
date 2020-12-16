@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import CustomTabs from "../../../../../components/generic/CustomTabs";
-import CustomTab from "../../../../../components/generic/CustomTab";
+import CustomTabs from "@components/generic/CustomTabs";
+import CustomTab from "@components/generic/CustomTab";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import TabPanel from "../../../../../components/generic/TabPanel";
+import TabPanel from "@components/generic/TabPanel";
 import Information from "./Information";
 import {useTranslation} from "react-i18next";
 import Houses from "./Houses";
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SettingClient = () => {
+const SettingClient = ({user, handleIsChooseHouses}) => {
     const classes = useStyles();
     const [selectTab, setSelectTab] = useState(1);
     const {t} = useTranslation();
@@ -28,6 +28,7 @@ const SettingClient = () => {
 
     const handleChange = (event, newValue) => {
         setSelectTab(newValue);
+        newValue === 1 ? handleIsChooseHouses(true) : handleIsChooseHouses(false)
     };
     return (
         <div className={classes.root}>

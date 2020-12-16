@@ -24,7 +24,8 @@ values (CURRENT_TIMESTAMP(), 0, CURRENT_TIMESTAMP(), 'USD', 'client@com.ua', 'UA
         'https://avatarfiles.alphacoders.com/753/thumb-1920-75363.jpg');
 
 insert into HOUSES (CREATED_DATE, VERSION, AREA, DESCRIPTION, EQUIPMENT, USER_ID, LOCATION_ID)
-values (CURRENT_TIMESTAMP(), 0, 120.0, 'trailer of the peace', 'EQUIPMENT', 1, 1);
+values (CURRENT_TIMESTAMP(), 0, 120.0, 'trailer of the peace', 'EQUIPMENT', 1, 1),
+       (CURRENT_TIMESTAMP(), 0, 140.0, 'trailer of the peace', 'EQUIPMENT', 2, 1);
 
 insert into CONTACTS (CREATED_DATE, VERSION, TYPE, VALUE, USER_ID)
 values (CURRENT_TIMESTAMP(), 0, 'OTHER_PHONE', '0931231212', 2);

@@ -85,5 +85,9 @@
   "settingClientInformationEditBtnTitle": "Изменить",
   "settingClientInformationSaveBtnTitle": "Сохранить",
   "settingClientInformationWriteBtnTitle": "Написать",
-  "cardHouseContractTitle": "Контракт"
+  "cardHouseContractTitle": "Контракт",
+  "housesDetailsStatusTitle": "Статус",
+  "housesDetailsAreaTitle": "Площадь дома",
+  "housesDetailsAddressTitle": "Локация",
+  "housesDetailsTypeTitle": "Комплектация"
 }

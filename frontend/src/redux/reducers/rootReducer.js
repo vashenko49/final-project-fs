@@ -11,6 +11,7 @@ import News from './News/News';
 import CreateUser from './User/CreateUser';
 import Auth from './Auth/Auth';
 import Error from './Error/Error';
+import ChooseHouseSetting from './ChooseHouseSetting/ChooseHouseSetting';
 
 export default combineReducers({
   System,
@@ -22,5 +23,6 @@ export default combineReducers({
   News,
   CreateUser,
   Auth,
-  Error
+  Error,
+  ChooseHouseSetting
 });
