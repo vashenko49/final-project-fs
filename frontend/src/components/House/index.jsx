@@ -32,7 +32,8 @@ const useStyles = makeStyles(() => ({
         borderRadius: '15px',
         marginBottom: '5px',
         '&>img': {
-            width: '100%',
+            height: '100%',
+            width: '100%'
         }
     },
     contract: ({isActive}) => ({

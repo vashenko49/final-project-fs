@@ -56,12 +56,14 @@ const useStyles = makeStyles(() => ({
 
 /**
  *
- * @param nameSelect - PropTypes.string.isRequired
+ * @param nameSelect - PropTypes.string
  * @param optionValues - PropTypes.array.isRequired
  * @param callback - the function takes one argument to return the item that was selected
  * @param error - PropTypes.bool default{false}
+ * @param className
+ * @param other
  */
-const SelectView = ({ nameSelect, optionValues, callback, error, ...other }) => {
+const SelectView = ({ nameSelect, optionValues, callback, error, className, ...other }) => {
   const classes = useStyles();
   const [field, setField] = React.useState('');
 
@@ -71,8 +73,8 @@ const SelectView = ({ nameSelect, optionValues, callback, error, ...other }) => 
   };
 
   return (
-    <div className={classes.selectBlock}>
-      <p className={classes.nameSelect}>{nameSelect}</p>
+    <div className={classNames(classes.selectBlock, className)}>
+      {nameSelect && <p className={classes.nameSelect}>{nameSelect}</p>}
       <FormControl
         error={error}
         variant="outlined"
@@ -124,7 +126,7 @@ SelectView.defaultProps = {
 SelectView.propTypes = {
   error: PropTypes.bool,
   optionValues: PropTypes.array.isRequired,
-  nameSelect: PropTypes.string.isRequired,
+  nameSelect: PropTypes.string,
   callback: function(props, propName, componentName) {
     let fn = props[propName];
     if (fn.constructor.name !== 'Function' || fn.length !== 1) {

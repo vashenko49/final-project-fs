@@ -10,8 +10,8 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Avatar from '@material-ui/core/Avatar';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getManagerInfo } from '../../../../redux/action/DrawerManager';
 import DrawerManagerSelector from '../../../../redux/selector/DrawerManagerSelector';
+import { getManagerInfo } from '../../../../redux/action/DrawerManager';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -61,10 +61,10 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const DrawerManager = () => {
+const SideManager = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const managerInfo = useSelector(DrawerManagerSelector.getManagerInfo);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getManagerInfo());
@@ -102,10 +102,10 @@ const DrawerManager = () => {
   );
 };
 
-DrawerManager.propTypes = {
+SideManager.propTypes = {
   userName: PropTypes.string,
   tel: PropTypes.string,
   email: PropTypes.string
 };
 
-export default DrawerManager;
+export default SideManager;

@@ -1,22 +1,15 @@
-import * as CURRENTUSER from '../../config/CurrentUser';
+import * as CurrentUser from '../../config/CurrentUser';
 
 export const initialState = {
-  userInfo: {
-    userMail: 0,
-    userNotifications: 0,
-    userName: 'User',
-    userRole: 'Role',
-    userAvatar: ''
-  }
+  profile: null
 };
 
 export default (state = initialState, action) => {
-  const { type = '' } = action;
-  switch (type) {
-    case CURRENTUSER.GET_CUSTOMER_INFO:
+  switch (action.type) {
+    case CurrentUser.GET_CURRENT_USER_PROFILE_SUCCESS:
       return {
         ...state,
-        userInfo: action.payload
+        profile: action.payload
       };
     default:
       return state;

@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 import System from './System/System';
 import Header from './Header/Header';
+import Side from './Side/Side';
 import CurrentUser from './CurrentUser/CurrentUser';
-
 import DrawerManager from './DrawerManager/DrawerManager';
 import ManagementService from './ManagementService/ManagementService';
 import QuickAccess from './QuickAccess/QuickAccess';
@@ -16,6 +16,7 @@ import ChooseHouseSetting from './ChooseHouseSetting/ChooseHouseSetting';
 export default combineReducers({
   System,
   Header,
+  Side,
   CurrentUser,
   DrawerManager,
   ManagementService,

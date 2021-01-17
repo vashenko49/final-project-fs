@@ -8,13 +8,15 @@ import SaveIcon from "@material-ui/icons/Save";
 import EditIcon from "@material-ui/icons/Edit";
 import Box from "@material-ui/core/Box";
 import {TextField} from "@material-ui/core";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import {useDispatch} from "react-redux";
 import * as ChooseHouseSetting from "@redux/action/ChooseHouseSetting";
+import HouseList from "@components/HouseList/HouseList";
 
 const useStyles = makeStyles(() => ({
     housesList: {
         marginBottom: '25px',
+        overflow: 'auto',
+        flexWrap: 'nowrap'
     },
     descriptionValue: {
         font: 'normal normal normal 14px/19px Roboto',
@@ -76,26 +78,11 @@ const Houses = ({houses}) => {
 
     return (
         <>
-            <Grid container spacing={1} className={classes.housesList}>
-                {houses.map((i, idx) => (
-                    <Grid item key={idx}>
-                        <ButtonBase onClick={() => handleSelectHouse(idx)}>
-                            <House
-                                contractDate={i.contractDate}
-                                isActive={selectHouse === idx}
-                                address={i.address}
-                                img={i.img}
-                                status={i.status}
-                                isCreated={false}
-                                houseId={i.houseId}
-                            />
-                        </ButtonBase>
-                    </Grid>
-                ))}
+            <HouseList houses={houses} onSelectHouse={handleSelectHouse}>
                 <Grid item>
                     <House onChangeImage={onChangeImage} img={loadImg}/>
                 </Grid>
-            </Grid>
+            </HouseList>
 
             <div className={classes.description}>
                 {isEdit.description
@@ -129,7 +116,7 @@ const Houses = ({houses}) => {
 Houses.defaultProps = {
     houses: [
         {
-            img: "https://res.cloudinary.com/marksem/image/upload/v1607679211/photos/manager%40com.ua/houses/photo_2020-05-12_11-29-49_2x_nlzhdo.png",
+            img: "https://res.cloudinary.com/marksem/image/upload/v1607707890/photos/manager%40com.ua/houses/1/photo_2020-05-12_11-29-49_2x_mg8ejh.png",
             contractDate: "11.07.2020",
             status: "free",
             houseId: "00170",

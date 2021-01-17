@@ -40,9 +40,7 @@ function UserContainer({ name, role, avatar }) {
         <div className={classes.name}>{name}</div>
         <div className={classes.role}>{role}</div>
       </div>
-      <Avatar alt={'avatar'} className={classes.avatar}>
-        UN
-      </Avatar>
+      <Avatar alt={'avatar'} className={classes.avatar} src={avatar} />
     </div>
   );
 }

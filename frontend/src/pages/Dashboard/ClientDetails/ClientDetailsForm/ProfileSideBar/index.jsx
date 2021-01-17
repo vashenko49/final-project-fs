@@ -43,7 +43,6 @@ const useStyles = makeStyles({
         backgroundColor: '#DEEAF9',
         borderRadius: '50%',
         border: 'none',
-        padding: '19px',
         display: 'inline-block',
         width: '66px',
         height: '66px'
@@ -151,7 +150,6 @@ const ProfileSideBar = ({id, name, photo, email, phones}) => {
         }
     })
 
-
     const setPhones = (value, idx) => {
         const newValues = [...values.phones];
         newValues[idx].value = value;
@@ -177,9 +175,6 @@ const ProfileSideBar = ({id, name, photo, email, phones}) => {
         return touched.phone && touched.phone.value &&
             errors.phone && errors.phone.value;
     }
-    console.log(errors)
-    console.log(values)
-    console.log(touched)
 
     return (
         <form className={classes.root}>

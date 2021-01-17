@@ -1,72 +1,54 @@
-import React from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Tab from '@material-ui/core/Tab';
+import React, { useEffect, useState } from 'react';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SettingsIcon from '@material-ui/icons/Settings';
-import Tabs from '@material-ui/core/Tabs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import CustomTabs from '../../../../components/generic/CustomTabs';
+import CustomTab from '../../../../components/generic/CustomTab';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    maxWidth: 500,
-    background: 'none',
-    boxShadow: 'none',
-    fontSize: '1.5rem;',
-    flex: '0 0 60%'
-  },
-  iconLabelWrapper: {
-    flexDirection: 'row'
+const useStyles = makeStyles(theme => ({
+  headerTop: {
+    '& .MuiTab-wrapper': {
+      fontSize: '18px'
+    }
   }
-});
-
-const iconStyle = {
-  marginBottom: 0
-};
+}));
 
 const HeaderNavBar = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
+  const location = useLocation();
+  const [value, setValue] = useState(0);
   const { t } = useTranslation();
+  const classes = useStyles();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  useEffect(() => {
+    setValue(location.pathname.includes('/settings') ? 1 : 0);
+  }, [location.pathname]);
+
   return (
-    <Tabs
+    <CustomTabs
       value={value}
       onChange={handleChange}
-      variant="fullWidth"
-      TabIndicatorProps={{
-        style: {
-          display: 'none'
-        }
-      }}
-      textColor="inherit"
-      aria-label="icon label tabs example"
+      hasIndicator={false}
+      className={classes.headerTop}
     >
-      <Tab
-        classes={{
-          wrapper: classes.iconLabelWrapper
-        }}
-        icon={<DashboardIcon style={iconStyle} />}
+      <CustomTab
+        icon={<DashboardIcon />}
         label={t('headerMainMenuHomeTab')}
         component={Link}
         to="/"
       />
-      <Tab
-        classes={{
-          wrapper: classes.iconLabelWrapper
-        }}
-        icon={<SettingsIcon style={iconStyle} />}
+      <CustomTab
+        icon={<SettingsIcon />}
         label={t('headerMainMenuSettingsTab')}
         component={Link}
         to="/settings"
       />
-    </Tabs>
+    </CustomTabs>
   );
 };
 

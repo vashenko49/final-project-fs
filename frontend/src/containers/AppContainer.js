@@ -17,7 +17,6 @@ const routes = [
     component: lazy(() => import('@pages/SignIn'))
   },
   {
-    exact: true,
     path: '/',
     component: lazy(() => import('@pages/Dashboard'))
   },
@@ -47,7 +46,7 @@ const AppContainer = () => {
   );
 
   return (
-    <Container>
+    <Container disableGutters={true} maxWidth={false}>
       <PageLoader load={load} />
       <PreLoader />
       <Suspense fallback={<></>}>

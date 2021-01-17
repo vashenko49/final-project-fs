@@ -31,8 +31,9 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center'
     },
     image: {
-        height: 'inherit',
-        borderRadius: '50%'
+        borderRadius: '50%',
+        width: '100%',
+        height: '100%'
     },
     rootUpload: propsStyle => ({
         display: 'flex',

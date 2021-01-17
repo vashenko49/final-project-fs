@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const DrawerQuickAccess = ({ onClick }) => {
+const SideQuickAccess = ({ onClick }) => {
   const classes = useStyles();
   const houses = useSelector(QuickAccessSelector.getHouses);
   const dispatch = useDispatch();
@@ -96,8 +96,8 @@ const DrawerQuickAccess = ({ onClick }) => {
   );
 };
 
-DrawerQuickAccess.propTypes = {
+SideQuickAccess.propTypes = {
   onClick: PropTypes.func
 };
 
-export default DrawerQuickAccess;
+export default SideQuickAccess;

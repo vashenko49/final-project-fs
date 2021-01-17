@@ -7,16 +7,27 @@ const CustomTab = withStyles(() => ({
         minWidth: 'inherit',
         marginRight: '10px',
         textTransform: 'none',
-        color:'#6E7375',
-        font: 'normal normal normal 14px/19px Roboto',
+        color: '#6E7375',
+        font: 'normal normal normal 14px Roboto',
         padding: 0,
         minHeight: 0,
-        '&:hover, &:focus, &$selected': {
+        '&:focus, &$selected': {
             color: '#254A93',
             fontWeight: 'bold',
+        },
+        '&:hover': {
+            color: '#254A93',
+        }
+    },
+    wrapper: {
+        flexDirection: 'row',
+        '& > *:first-child': {
+            marginBottom: '0!important',
+            marginRight: '7px'
         }
     },
     selected: {},
-}))((props) => <Tab disableRipple {...props} />);
+}))
+((props) => <Tab disableRipple {...props} />);
 
 export default CustomTab;

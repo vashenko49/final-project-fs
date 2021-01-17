@@ -3,6 +3,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import CurrentUserSelector from '../../redux/selector/CurrentUserSelector';
 
 const useStyles = makeStyles({
   welcome: {
@@ -25,12 +26,10 @@ const useStyles = makeStyles({
 const Welcome = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const userInfo = useSelector(state => {
-    return state.CurrentUser.userInfo;
-  });
+  const profile = useSelector(CurrentUserSelector.getProfile);
   return (
     <div className={classes.welcome}>
-      {t('welcomeHello')}, {userInfo.userName}!
+      {t('welcomeHello')}, {profile.name}!
       <p className={classes.updates}>
         {t('welcomeUpdates')}: <span className={classes.date} />
       </p>

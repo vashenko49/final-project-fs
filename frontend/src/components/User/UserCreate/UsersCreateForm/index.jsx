@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { createUsers } from '@redux/action/CurrentUser';
+import { createUsers } from '@redux/action/CurrentUserSelector';
 
 const useStyles = makeStyles(() => ({
   buttons: {
