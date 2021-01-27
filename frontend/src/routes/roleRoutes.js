@@ -8,6 +8,7 @@ import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import ClientDetails from '../pages/Dashboard/ClientDetails';
 import Houses from '../pages/Dashboard/Houses';
+import UsersCreate from '../components/User/UserCreate';
 
 const Component = () => {
   return <div>Component</div>;
@@ -85,5 +86,11 @@ export default [
     icon: <CameraAltIcon />,
     component: Component,
     roles: ['CLIENT', 'MANAGER', 'ADMIN']
+  },
+  {
+    path: '/users/create',
+    hasTab: false,
+    component: UsersCreate,
+    roles: ['MANAGER', 'ADMIN']
   }
 ];

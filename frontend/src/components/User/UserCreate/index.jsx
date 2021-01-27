@@ -1,5 +1,5 @@
 import React from 'react';
-import Index from './UsersCreateForm';
+import UsersCreateForm from './UsersCreateForm';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -23,7 +23,7 @@ const UsersCreate = () => {
   return (
     <>
       <p className={classes.title}>{t('createUserTitle')}</p>
-      <Index />
+      <UsersCreateForm />
       {createResponse.success && <SuccessCreateUser client={createResponse.message} />}
     </>
   );

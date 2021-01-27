@@ -86,7 +86,7 @@ const SuccessCreateUser = ({ client }) => {
         <CloseIcon />
       </IconButton>
       <DialogTitle disableTypography id="alert-dialog-title">
-        {t('createUserSuccessTitle')}
+        {t('createUserSuccessTitle') + ' - '}
         {client.role === 'CLIENT' ? t('createUserSelectClient') : t('createUserSelectManager')}
         <span className={classes.titleName}> {client.name}</span>
       </DialogTitle>
@@ -98,7 +98,7 @@ const SuccessCreateUser = ({ client }) => {
         <CustomButton onClick={handleClose} color="secondary" width="240px">
           {t('createUserSuccessReturn')}
         </CustomButton>
-        <CustomButton onClick={handleClose} href={`#${client.id}`} color="primary" autoFocus width="240px">
+        <CustomButton onClick={handleClose} href={`/clients/${client.id}`} color="primary" autoFocus width="240px">
           {t('createUserSuccessGoTo')}
         </CustomButton>
       </DialogActions>

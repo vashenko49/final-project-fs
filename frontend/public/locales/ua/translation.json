@@ -52,7 +52,7 @@
   "createUserPassword": "Пароль",
   "createUserRepeatPassword": "Повторити пароль",
   "createUserSend": "Створити",
-  "createUserSuccessTitle": "Створений новий користувач - ",
+  "createUserSuccessTitle": "Створений новий користувач",
   "createUserSuccessDescTitle": "Імя та пароль вислані користувачу на Email",
   "createUserSuccessDesc": "Для оформлення картки клієнту перейдіть за посиланням. В разі не закінчення процесу оформлення, картка буде дійсною",
   "createUserSuccessReturn": "Повернутись",

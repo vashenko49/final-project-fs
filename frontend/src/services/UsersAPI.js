@@ -1,7 +1,7 @@
 import api from '../services/API';
 
 export default class UsersAPI {
-  static createUsers = data => api.post('create', data);
+  static createUsers = data => api.post('users/create', data);
 
   static updateProfile = data => api.put('users/updateProfile', data);
 
