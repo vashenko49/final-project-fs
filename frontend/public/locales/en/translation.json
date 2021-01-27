@@ -52,7 +52,7 @@
   "createUserPassword": "Password",
   "createUserRepeatPassword": "Repeat Password",
   "createUserSend": "Create",
-  "createUserSuccessTitle": "New user created - ",
+  "createUserSuccessTitle": "New user created",
   "createUserSuccessDescTitle": "Username and password sent to user by Email",
   "createUserSuccessDesc": "To issue a card to a client, follow the link. If the registration process is not completed, the card will be valid",
   "createUserSuccessReturn": "Return",

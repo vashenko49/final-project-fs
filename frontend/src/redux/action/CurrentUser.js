@@ -21,15 +21,7 @@ export const createUsers = data => dispatch => {
         }
       });
     })
-    .catch(err => {
-      dispatch({
-        type: CreateUser.RESPONSE_CREATE_USER,
-        payload: {
-          success: false,
-          message: err.message
-        }
-      });
-    })
+    .catch(err => errorShow(err.response.data)(dispatch))
     .finally(() => {
       dispatch({
         type: System.STOP_LOAD
